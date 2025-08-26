@@ -1,0 +1,62 @@
+name: Build Fedora package
+
+on:
+  push: {}
+  pull_request:
+    types: [opened, synchronize, reopened]
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up podman on runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+
+      - name: Install Python build deps and build sdist on host
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install build
+          python3 -m build --sdist --outdir dist
+
+      - name: Prepare rpmbuild tree on host
+        run: |
+          mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          cp dist/*.tar.gz ~/rpmbuild/SOURCES/ || true
+          cp fedora-package.spec ~/rpmbuild/SPECS/
+
+      - name: Show rpmbuild tree on host (before container run)
+        run: |
+          echo '=== rpmbuild host tree ==='
+          ls -la ~/rpmbuild || true
+          echo '=== SOURCES ==='
+          ls -la ~/rpmbuild/SOURCES || true
+          echo '=== SPECS ==='
+          ls -la ~/rpmbuild/SPECS || true
+
+      - name: Build RPM inside Fedora container (podman)
+        run: |
+          # Run rpmbuild -ba inside a Fedora container with host rpmbuild mounted
+          podman run --rm -v ~/rpmbuild:/root/rpmbuild:Z -w /root/rpmbuild \
+            registry.fedoraproject.org/fedora:latest \
+            bash -c "dnf -y install rpm-build redhat-rpm-config python3-devel python3-setuptools python3-pip python3-wheel gcc make gettext rpmdevtools && rpmbuild -ba SPECS/fedora-package.spec"
+
+      - name: Copy RPMs to artifacts dir
+        run: |
+          mkdir -p artifacts
+          cp ~/rpmbuild/RPMS/*/*.rpm artifacts/ || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fedora-packages
+          path: |
+            ~/rpmbuild/SRPMS/*.src.rpm
+            ~/rpmbuild/RPMS/**/*.rpm
+            dist/*.tar.gz
