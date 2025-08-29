@@ -108,6 +108,11 @@ sudo apt install safeeyes
 While no tray icon is available, if you run the app, it will function in the background and will show breaks as usual. You can also change the settings by clicking on the Safe Eyes icon from the menu while the app is running, or by running the command `safeeyes -s`.
 
 ### Flatpak
+
+<a href='[https://flathub.org/apps/io.github.archisman_panigrahi.typhoon](https://flathub.org/apps/io.github.slgobinath.SafeEyes)'>
+    <img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en'/>
+  </a>
+  
 **Warning**: Many plugins and features don't work well in the flatpak. We recommend that you use one of the native packages listed above. Flatpak-only bugs should be reported at https://github.com/flathub/io.github.slgobinath.SafeEyes.
 ```bash
 flatpak install flathub io.github.slgobinath.SafeEyes
