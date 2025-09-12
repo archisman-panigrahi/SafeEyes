@@ -235,6 +235,7 @@ class BreakScreen:
         NET_WM_STATE = self.x11_display.intern_atom("_NET_WM_STATE")
         NET_WM_STATE_ABOVE = self.x11_display.intern_atom("_NET_WM_STATE_ABOVE")
         NET_WM_STATE_STICKY = self.x11_display.intern_atom("_NET_WM_STATE_STICKY")
+        NET_WM_STATE_FULLSCREEN = self.x11_display.intern_atom("_NET_WM_STATE_FULLSCREEN")
 
         # To change the _NET_WM_STATE, we cannot simply set the
         # property - we must send a ClientMessage event
@@ -248,6 +249,7 @@ class BreakScreen:
 
         xid = GdkX11.X11Surface.get_xid(surface)
 
+        # Set fullscreen, above, and sticky states
         root_window.send_event(
             Xlib.protocol.event.ClientMessage(
                 window=xid,
@@ -256,8 +258,29 @@ class BreakScreen:
                     32,
                     [
                         1,  # _NET_WM_STATE_ADD
+                        NET_WM_STATE_FULLSCREEN,
                         NET_WM_STATE_ABOVE,
-                        NET_WM_STATE_STICKY,  # other property
+                        1,  # source indication
+                        0,  # must be 0
+                    ],
+                ),
+            ),
+            event_mask=(
+                Xlib.X.SubstructureRedirectMask | Xlib.X.SubstructureNotifyMask
+            ),
+        )
+
+        # Also set sticky state in a separate message (EWMH allows only 2 properties per message)
+        root_window.send_event(
+            Xlib.protocol.event.ClientMessage(
+                window=xid,
+                client_type=NET_WM_STATE,
+                data=(
+                    32,
+                    [
+                        1,  # _NET_WM_STATE_ADD
+                        NET_WM_STATE_STICKY,
+                        0,  # no second property
                         1,  # source indication
                         0,  # must be 0
                     ],
