@@ -1,0 +1,16 @@
+{
+    "meta": {
+        "name": "Zoom",
+        "description": "Skip breaks while Zoom is running",
+        "version": "0.3"
+    },
+    "dependencies": {
+        "python_modules": [],
+        "shell_commands": [],
+        "operating_systems": [],
+        "desktop_environments": [],
+        "resources": []
+    },
+    "settings": [],
+    "break_override_allowed": true
+}
