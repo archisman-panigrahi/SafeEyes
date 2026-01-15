@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2026-01-16 07:01+0000\n"
-"Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/he/>\n"
 "Language: he\n"
@@ -55,23 +55,23 @@ msgstr "להישען אחורה בכיסא ולהירגע"
 
 # Commandline arg description
 msgid "show the about dialog"
-msgstr "show the about dialog"
+msgstr "הצגת החלונית על אודות"
 
 # Commandline arg description
 msgid "disable the currently running Safe Eyes instance"
-msgstr "disable the currently running Safe Eyes instance"
+msgstr "כיבוי העותק הפעיל הנוכחי של Safe Eyes"
 
 # Commandline arg description
 msgid "enable the currently running Safe Eyes instance"
-msgstr "enable the currently running Safe Eyes instance"
+msgstr "הפעלת העותק הפעיל הנוכחי של Safe Eyes"
 
 # Commandline arg description
 msgid "quit the running Safe Eyes instance and exit"
-msgstr "quit the running Safe Eyes instance and exit"
+msgstr "חיסול העותק הפעיל של Safe Eyes ולצאת"
 
 # Commandline arg description
 msgid "show the settings dialog"
-msgstr "show the settings dialog"
+msgstr "הצגת חלונית ההגדרות"
 
 # Commandline arg description
 msgid "start Safe Eyes in debug mode"
