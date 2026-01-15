@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-11 17:07+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2026-01-16 07:01+0000\n"
+"Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/he/>\n"
 "Language: he\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.2\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -35,7 +35,7 @@ msgstr "לסובב את העיניים נגד כיוון השעון"
 
 # Short break
 msgid "Blink your eyes"
-msgstr "למצמץ את העיניים"
+msgstr "למצמץ עם העיניים"
 
 # Short break
 msgid "Focus on a point in the far distance"
@@ -47,7 +47,7 @@ msgstr "לשתות קצת מים"
 
 # Long break
 msgid "Walk for a while"
-msgstr "ללכת הליכה קצרה"
+msgstr "לצאת להליכה קצרה"
 
 # Long break
 msgid "Lean back at your seat and relax"
