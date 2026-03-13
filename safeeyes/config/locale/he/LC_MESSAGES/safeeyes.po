@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-16 07:01+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2026-03-13 20:09+0000\n"
+"Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/he/>\n"
 "Language: he\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -55,7 +55,7 @@ msgstr "להישען אחורה בכיסא ולהירגע"
 
 # Commandline arg description
 msgid "show the about dialog"
-msgstr "הצגת החלונית על אודות"
+msgstr "הצגת חלונית „על אודות”"
 
 # Commandline arg description
 msgid "disable the currently running Safe Eyes instance"
@@ -67,7 +67,7 @@ msgstr "הפעלת העותק הפעיל הנוכחי של Safe Eyes"
 
 # Commandline arg description
 msgid "quit the running Safe Eyes instance and exit"
-msgstr "חיסול העותק הפעיל של Safe Eyes ולצאת"
+msgstr "חיסול העותק הפעיל של Safe Eyes ויציאה"
 
 # Commandline arg description
 msgid "show the settings dialog"
@@ -83,7 +83,7 @@ msgstr "print the status of running Safe Eyes instance and exit"
 
 # Status message
 msgid "Safe Eyes is not running"
-msgstr "הגנה על העיניים אינה פעילה"
+msgstr "‏Safe Eyes אינו פעיל"
 
 # About dialog
 msgid "Close"
@@ -112,7 +112,7 @@ msgstr "נשמח לסיוע בתרגום היישום הזה"
 
 # Break screen
 msgid "Skip"
-msgstr "מסך הפסקה"
+msgstr "דילוג"
 
 # Break screen
 msgid "Postpone"
@@ -132,7 +132,7 @@ msgstr "זמן ההכנה להפסקה (בשניות)"
 
 # Settings dialog
 msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "משך השבתת קיצורי המקלדת (בשניות)"
+msgstr "משך השבתת קיצורי מקשים (בשניות)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -576,7 +576,7 @@ msgstr ""
 "אישית, נא ליצור גיליון סגנונות חדש בתוך „%(new)s” במקום."
 
 msgid "Customizing the postpone and skip shortcuts does not work on Wayland."
-msgstr "אין תמיכה בהתאמה אישית של קיצורי הדחייה והדילוג ב־Wayland."
+msgstr "ההתאמה האישית של קיצורי המקשים לדחייה ולדילוג אינה נתמכת ב־Wayland."
 
 msgid "Safe Eyes - Error"
 msgstr "‏Safe Eyes - שגיאה"
