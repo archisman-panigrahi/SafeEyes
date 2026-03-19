@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-13 20:09+0000\n"
+"PO-Revision-Date: 2026-03-20 17:09+0000\n"
 "Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/he/>\n"
@@ -526,7 +526,7 @@ msgstr "הגבלת כמות הפעמים שניתן לדחות או לדלג ב�
 # plugin/limitconsecutiveskipping
 #, python-format
 msgid "Skipped or postponed %(num)d/%(allowed)d breaks in a row"
-msgstr "דילגת על או דחית %(num)d/%(allowed)d הפסקות ברצף"
+msgstr "דילגת על הפסקות או דחית אותן %(num)d/‏%(allowed)d פעמים ברצף"
 
 # safeeyes/platform/io.github.slgobinath.SafeEyes.desktop
 msgid "RSI Prevention"
