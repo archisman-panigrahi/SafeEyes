@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-27 10:01+0000\n"
+"PO-Revision-Date: 2026-03-24 10:09+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/nl/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -377,10 +377,12 @@ msgstr "Schermbeveiliging"
 # plugin/screensaver
 msgid "Lock the screen after long breaks by starting screensaver/screen-lock"
 msgstr ""
+"Vergrendel het scherm na lange pauzes door de schermbeveiliging/-"
+"vergrendeling te starten"
 
 # plugin/screensaver
 msgid "Custom screensaver or screen-lock command"
-msgstr ""
+msgstr "Aangepaste schermbeveiligings/-vergrendelingsopdracht"
 
 # plugin/screensaver
 msgid "Minimum seconds to skip without screensaver"
@@ -585,25 +587,27 @@ msgstr ""
 
 msgid "Customizing the postpone and skip shortcuts does not work on Wayland."
 msgstr ""
+"Het aanpassen van de sneltoetsen voor uitstellen en overslaan werkt niet op "
+"Wayland."
 
 msgid "Safe Eyes - Error"
-msgstr ""
+msgstr "Safe Eyes — Foutmelding"
 
 msgid "A required plugin is missing dependencies!"
-msgstr ""
+msgstr "Er ontbreken afhankelijkheden van een vereiste plug-in!"
 
 msgid "Postponement duration in"
-msgstr ""
+msgstr "Uitstellen over"
 
 msgid "minutes"
-msgstr ""
+msgstr "minuten"
 
 msgid "seconds"
-msgstr ""
+msgstr "seconden"
 
 #, python-format
 msgid "Please install one of the command-line tools: %s"
-msgstr ""
+msgstr "Installeer een van de opdrachtregelhulpmiddelen: %s"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"
