@@ -130,9 +130,7 @@ class SafeEyes(Gtk.Application):
         long_requested = bool(cli.get("long-break"))
 
         if short_requested and long_requested:
-            raise ValueError(
-                "Cannot combine -b/--short-break with -l/--long-break"
-            )
+            raise ValueError("Cannot combine -b/--short-break with -l/--long-break")
 
         break_type = None
         if short_requested:
@@ -228,7 +226,9 @@ class SafeEyes(Gtk.Application):
         cli = command_line.get_options_dict().end().unpack()
 
         try:
-            (take_break_requested, requested_break_type) = self._get_take_break_request(cli)
+            (take_break_requested, requested_break_type) = self._get_take_break_request(
+                cli
+            )
         except ValueError as error:
             command_line.printerr_literal(f"{error}\n")
             return 1
