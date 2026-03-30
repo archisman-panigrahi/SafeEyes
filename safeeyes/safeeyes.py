@@ -76,6 +76,8 @@ class SafeEyes(Gtk.Application):
             ("about", "a", _("show the about dialog")),
             ("settings", "s", _("show the settings dialog")),
             ("take-break", "t", _("Take a break now").lower()),
+            ("short-break", "b", f"{_('take a short break now').lower()}"),
+            ("long-break", "l", f"{_('take a long break now').lower()}"),
             # activate action
             ("disable", "d", _("disable the currently running Safe Eyes instance")),
             ("enable", "e", _("enable the currently running Safe Eyes instance")),
@@ -121,6 +123,26 @@ class SafeEyes(Gtk.Application):
             action = Gio.SimpleAction.new(name, None)
             action.connect("activate", create_cb_discard_args(callback))
             self.add_action(action)
+
+    @staticmethod
+    def _get_take_break_request(cli) -> tuple[bool, typing.Optional[BreakType]]:
+        short_requested = bool(cli.get("short-break"))
+        long_requested = bool(cli.get("long-break"))
+
+        if short_requested and long_requested:
+            raise ValueError(
+                "Cannot combine -b/--short-break with -l/--long-break"
+            )
+
+        break_type = None
+        if short_requested:
+            break_type = BreakType.SHORT_BREAK
+        elif long_requested:
+            break_type = BreakType.LONG_BREAK
+
+        take_break_requested = bool(cli.get("take-break")) or break_type is not None
+
+        return (take_break_requested, break_type)
 
     def do_handle_local_options(self, options):
         Gtk.Application.do_handle_local_options(self, options)
@@ -175,9 +197,12 @@ class SafeEyes(Gtk.Application):
                 self.activate_action("show_settings", None)
                 return 0
 
-            if options.contains("take-break"):
-                self.activate_action("take_break", None)
-                return 0
+            if (
+                options.contains("take-break")
+                or options.contains("short-break")
+                or options.contains("long-break")
+            ):
+                return -1
 
             logging.info("Safe Eyes is already running")
             return 0  # TODO: return error code here?
@@ -202,6 +227,12 @@ class SafeEyes(Gtk.Application):
 
         cli = command_line.get_options_dict().end().unpack()
 
+        try:
+            (take_break_requested, requested_break_type) = self._get_take_break_request(cli)
+        except ValueError as error:
+            command_line.printerr_literal(f"{error}\n")
+            return 1
+
         if cli.get("status"):
             # this is only invoked remotely
             # this code runs in the primary instance, but will print to the output
@@ -217,8 +248,8 @@ class SafeEyes(Gtk.Application):
             self.show_about()
         elif cli.get("settings"):
             self.show_settings()
-        elif cli.get("take-break"):
-            self.take_break()
+        elif take_break_requested:
+            self.take_break(requested_break_type)
 
         return 0
 
