@@ -191,6 +191,7 @@ This method has the same caveats about icons/window icons as running from source
 - Smart pause if system is idle
 - Multi-screen support
 - Customizable user interface
+- Middle-click the tray icon to start a short break
 - Command-line arguments to control the running instance
 - Customizable using plug-ins
 
