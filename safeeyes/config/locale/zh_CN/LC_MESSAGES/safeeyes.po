@@ -131,10 +131,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "休息之前的准备时间（秒）"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "禁用键盘快捷键的时长（秒）"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "推迟休息时长（分钟）"
 
@@ -591,6 +587,13 @@ msgstr "秒"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "请安装以下任一命令行工具：%s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "禁用键盘快捷键的时长（秒）"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

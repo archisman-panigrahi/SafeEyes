@@ -79,8 +79,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "démarrer Safe Eyes en mode de débogage"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "imprimer l’état de l’instance Safe Eyes en cours et fermer"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -131,10 +131,6 @@ msgstr "Intervalle entre deux pauses (en minutes)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Durée de préparation à une pause (en secondes)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Période de désactivation des raccourcis (en secondes)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -611,6 +607,17 @@ msgstr "secondes"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "Installez l’un des outils de ligne de commande : %s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "imprimer l’état de l’instance Safe Eyes en cours et fermer"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Période de désactivation des raccourcis (en secondes)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

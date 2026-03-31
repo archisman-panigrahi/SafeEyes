@@ -132,10 +132,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Molaya hazırlık için süre (saniye)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Klavye kısayollarının etkisiz kalma süresi (saniye)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Erteleme süresi (dakika)"
 
@@ -599,6 +595,13 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Klavye kısayollarının etkisiz kalma süresi (saniye)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "디버그 모드에서 세이브아이즈 시작"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "실행 중인 세이프아이즈 객체를 종료하고 상태 출력"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -127,10 +127,6 @@ msgstr "두 번의 휴식 사이의 간격 (분)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "휴식 준비 시간 (초)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "자판 단축키 비활성 기간 (초)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -587,6 +583,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "실행 중인 세이프아이즈 객체를 종료하고 상태 출력"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "자판 단축키 비활성 기간 (초)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

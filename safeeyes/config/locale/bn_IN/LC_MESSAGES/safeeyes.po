@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "Safe Eyes-কে debug মোডে চালান"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "চলমান Safe Eyes-এর অবস্থা দেখিয়ে বেরিয়ে যান"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "দুইটি বিরতির মধ্যে ব্যবধান
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "বিরতির জন্য প্রস্তুতির সময় (সেকেন্ডে)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "কীবোর্ড শর্টকাট নিষ্ক্রিয়করণের সময় (সেকেন্ডে)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -597,6 +593,17 @@ msgstr "সেকেন্ড"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "অনুগ্রহ করে নিচের কমান্ড-লাইন টুলগুলোর একটি ইনস্টল করুন: %s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "চলমান Safe Eyes-এর অবস্থা দেখিয়ে বেরিয়ে যান"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "কীবোর্ড শর্টকাট নিষ্ক্রিয়করণের সময় (সেকেন্ডে)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

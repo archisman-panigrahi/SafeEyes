@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "avvia Safe Eyes in modalità debug"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "stampa lo stato di esecuzione di Safe Eyes ed esci"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -131,11 +131,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Tempo di preparazione per una pausa (in secondi)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr ""
-"Durata della disattivazione per le scorciatoie da tastiera (in secondi)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Durata del rinvio (in minuti)"
 
@@ -167,7 +162,8 @@ msgstr "Reimposta"
 
 # Settings dialog
 msgid "Are you sure you want to reset all settings to default?"
-msgstr "Le impostazioni saranno resettate ai valori di default. Vuoi procedere?"
+msgstr ""
+"Le impostazioni saranno resettate ai valori di default. Vuoi procedere?"
 
 # Settings dialog
 msgid "Options"
@@ -606,6 +602,18 @@ msgstr "secondi"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "Prego installa uno degli strumenti da riga di comando: %s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "stampa lo stato di esecuzione di Safe Eyes ed esci"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr ""
+#~ "Durata della disattivazione per le scorciatoie da tastiera (in secondi)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"
