@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-21 16:03+0000\n"
-"Last-Translator: Victor Viriato <josevviriato@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/pt/>\n"
 "Language: pt\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -79,7 +79,7 @@ msgstr "iniciar o Safe Eyes em modo de depuração"
 
 # Commandline arg description
 msgid "print the status of running Safe Eyes instance and exit"
-msgstr ""
+msgstr "mostrar o estado de execução do Safe Eyes e sair"
 
 # Status message
 msgid "Safe Eyes is not running"
