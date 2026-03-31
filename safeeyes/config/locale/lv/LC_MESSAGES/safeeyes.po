@@ -65,8 +65,9 @@ msgstr "rādīt iestatījumu dialogu"
 msgid "start Safe Eyes in debug mode"
 msgstr "palaist Safe Eyes atkļūdošanas režīmā"
 
-msgid "print the status of running safeeyes instance and exit"
-msgstr "drukāt darbojošās Safe Eyes instances statusu un iziet"
+# Commandline arg description
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 msgid "Safe Eyes is not running"
 msgstr "Safe Eyes nav palaists"
@@ -106,9 +107,6 @@ msgstr "Intervāls starp diviem pārtraukumiem (minūtēs)"
 
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Laiks, lai sagatavotos pārtraukumam (sekundēs)"
-
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Īsinājumtaustiņu atspējošanas laiks (sekundēs)"
 
 msgid "Postponement duration (in minutes)"
 msgstr "Atlikšanas laiks (minūtēs)"
@@ -511,6 +509,15 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "drukāt darbojošās Safe Eyes instances statusu un iziet"
+
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Īsinājumtaustiņu atspējošanas laiks (sekundēs)"
 
 #~ msgid "Lock the screen after long breaks by starting screensaver"
 #~ msgstr "Slēgt ekrānu (ar ekrāna saudzētāju) pēc garajiem pārtraukumiem"

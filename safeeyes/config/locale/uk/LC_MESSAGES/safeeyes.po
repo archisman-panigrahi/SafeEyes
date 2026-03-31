@@ -130,10 +130,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Час для підготовки до перерви (в секундах)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Період вимикання комбінацій клавіш (в секундах)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Тривалість відкладення (в хвилинах)"
 
@@ -599,6 +595,13 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Період вимикання комбінацій клавіш (в секундах)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

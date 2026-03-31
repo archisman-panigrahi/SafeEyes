@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "डीबग मोड में सेफ आईज शुरू करें"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "सेफ आईज दृष्टांत स्थिति को मुद्रित करें और बाहर निकलें"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -127,10 +127,6 @@ msgstr "दो ब्रेक के बीच अंतराल (मिनट
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "ब्रेक के लिए तैयार करने का समय (सेकंड में)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "कीबोर्ड शॉर्टकट अक्षम अवधि (सेकंड में)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -590,6 +586,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "सेफ आईज दृष्टांत स्थिति को मुद्रित करें और बाहर निकलें"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "कीबोर्ड शॉर्टकट अक्षम अवधि (सेकंड में)"
 
 # Short break
 #~ msgid "Tightly close your eyes"

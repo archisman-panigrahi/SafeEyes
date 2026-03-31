@@ -66,7 +66,7 @@ msgid "start Safe Eyes in debug mode"
 msgstr ""
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
+msgid "print the status of running Safe Eyes instance and exit"
 msgstr ""
 
 # Status message
@@ -114,10 +114,6 @@ msgstr ""
 
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
-msgstr ""
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
 msgstr ""
 
 # Settings dialog
@@ -577,4 +573,7 @@ msgstr ""
 
 #, python-format
 msgid "Please install one of the command-line tools: %s"
+msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""

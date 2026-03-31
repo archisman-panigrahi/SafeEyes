@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "spustit Safe Eyes v režimu pro ladění"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "Popis argumentu příkazového řádku"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "Interval mezi dvěma přestávkami (v minutách)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Čas pro přípravu na přestávku (v sekundách)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Vypnout klávesové zkratky po dobu (v sekundách)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -606,6 +602,17 @@ msgstr "vteřinách"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "Nainstalujte prosím jeden z těchto nástrojů příkazového řádku:%s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "Popis argumentu příkazového řádku"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Vypnout klávesové zkratky po dobu (v sekundách)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

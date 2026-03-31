@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "abiarazi Safe Eyes arazketa moduan"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "inprimatu uneko Safe Eyes instantziaren egoera eta irten"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "Bi etenaldiren arteko tartea (minututan)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Etenaldirako prestatzeko denbora (segundotan)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Laster-teklak desgaitutako aldia (segundotan)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -596,6 +592,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "inprimatu uneko Safe Eyes instantziaren egoera eta irten"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Laster-teklak desgaitutako aldia (segundotan)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

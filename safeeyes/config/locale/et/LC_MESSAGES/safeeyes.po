@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "käivita veatuvastuse režiimis"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "väljasta hetkel töötava Safe Eyes instantsi staatus ja välju"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "Kahe pausi vaheline aeg (minutites)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Pausist etteteatamise aeg (sekundites)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Klaviatuurikäskude eiramise aeg (sekundit)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -601,6 +597,17 @@ msgstr "sekundi pärast"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "Palun paigalda mõni käsureaprogrammidest: %s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "väljasta hetkel töötava Safe Eyes instantsi staatus ja välju"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Klaviatuurikäskude eiramise aeg (sekundit)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"
