@@ -68,4 +68,7 @@ class BuildMoSubCommand(Command):
         return self._get_files().values()
 
 
-setup(cmdclass={"build": BuildCommand, "build_mo": BuildMoSubCommand})
+setup(
+    cmdclass={"build": BuildCommand, "build_mo": BuildMoSubCommand},
+    license="GPL-3.0-or-later",
+)
