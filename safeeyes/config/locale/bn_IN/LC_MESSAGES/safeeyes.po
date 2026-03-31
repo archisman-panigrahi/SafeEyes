@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-11 17:07+0000\n"
+"PO-Revision-Date: 2026-03-31 05:02+0000\n"
 "Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
-"Language-Team: Bengali (India) <https://hosted.weblate.org/projects/"
-"safe-eyes/translations/bn_IN/>\n"
+"Language-Team: Bengali (India) <https://hosted.weblate.org/projects/safe-"
+"eyes/translations/bn_IN/>\n"
 "Language: bn_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -67,7 +67,7 @@ msgstr "বর্তমানে চলমান Safe Eyes সক্রিয় �
 
 # Commandline arg description
 msgid "quit the running Safe Eyes instance and exit"
-msgstr "চলমান Safe Eyes বন্ধ করে বেরিয়ে যান"
+msgstr "চলন্ত Safe Eyes বন্ধ করে বেরিয়ে যান"
 
 # Commandline arg description
 msgid "show the settings dialog"
