@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Latvian (Safe Eyes)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-11 11:56+0200\n"
-"PO-Revision-Date: 2019-03-12 09:14+0200\n"
-"Last-Translator: Reinis Danne <rei4dan@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/lv/>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -67,7 +67,7 @@ msgstr "palaist Safe Eyes atkļūdošanas režīmā"
 
 # Commandline arg description
 msgid "print the status of running Safe Eyes instance and exit"
-msgstr ""
+msgstr "drukāt darbojošās Safe Eyes instances statusu un iziet"
 
 msgid "Safe Eyes is not running"
 msgstr "Safe Eyes nav palaists"
