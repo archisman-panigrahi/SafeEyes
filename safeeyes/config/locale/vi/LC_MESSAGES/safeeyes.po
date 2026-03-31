@@ -131,11 +131,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Thời gian để chuẩn bị nghỉ ngơi (bằng giây)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr ""
-"Th.gian khóa phím tắt để tránh tắt nhầm Nhắc nhở khi nó hiện lên (bằng giây)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Thời gian tạm hoãn (bằng phút)"
 
@@ -593,6 +588,15 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr ""
+#~ "Th.gian khóa phím tắt để tránh tắt nhầm Nhắc nhở khi nó hiện lên (bằng "
+#~ "giây)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

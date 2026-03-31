@@ -78,8 +78,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "اجرای محافظ چشم در حالت رفع اشکال"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "چاپ وضعیت نمونهٔ محافظ چشم در جال اجرا و خروج"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "بازهٔ بین دو استراحت (به دقیقه)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "زمان آمادگی برای استراحت (به ثانیه)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "دورهٔ از کار افتادن میان‌برهای صفحه کلید (به ثانیه)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -594,6 +590,17 @@ msgstr "ثانیه"
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr "نصب یکی از این ابزارهای خط فرمان: %s"
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "چاپ وضعیت نمونهٔ محافظ چشم در جال اجرا و خروج"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "دورهٔ از کار افتادن میان‌برهای صفحه کلید (به ثانیه)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

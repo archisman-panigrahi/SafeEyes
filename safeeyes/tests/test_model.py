@@ -16,11 +16,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import gettext
 import pytest
 import random
 import typing
 from unittest import mock
-from safeeyes import context, model
+from safeeyes import configuration, context, model
 
 
 class TestBreak:
@@ -52,8 +53,16 @@ class TestBreak:
 
 
 class TestBreakQueue:
+    def get_context(self) -> context.Context:
+        return context.Context(
+            api=mock.Mock(spec=context.API),
+            locale=gettext.NullTranslations(),
+            version="0.0.0",
+            session={},
+        )
+
     def test_create_empty(self) -> None:
-        config = model.Config(
+        config = configuration.Config(
             user_config={
                 "short_breaks": [],
                 "long_breaks": [],
@@ -66,11 +75,7 @@ class TestBreakQueue:
             system_config={},
         )
 
-        ctx = context.Context(
-            api=mock.Mock(spec=context.API), locale="en_US", version="0.0.0", session={}
-        )
-
-        bq = model.BreakQueue.create(config, ctx)
+        bq = model.BreakQueue.create(config, self.get_context())
 
         assert bq is None
 
@@ -84,7 +89,7 @@ class TestBreakQueue:
             model, "_", lambda message: "translated!: " + message, raising=False
         )
 
-        config = model.Config(
+        config = configuration.Config(
             user_config={
                 "short_breaks": [
                     {"name": "break 1"},
@@ -101,11 +106,7 @@ class TestBreakQueue:
             system_config={},
         )
 
-        ctx = context.Context(
-            api=mock.Mock(spec=context.API), locale="en_US", version="0.0.0", session={}
-        )
-
-        bq = model.BreakQueue.create(config, ctx)
+        bq = model.BreakQueue.create(config, self.get_context())
 
         assert bq is not None
 
@@ -121,7 +122,7 @@ class TestBreakQueue:
             model, "_", lambda message: "translated!: " + message, raising=False
         )
 
-        config = model.Config(
+        config = configuration.Config(
             user_config={
                 "short_breaks": [],
                 "long_breaks": [
@@ -138,11 +139,7 @@ class TestBreakQueue:
             system_config={},
         )
 
-        ctx = context.Context(
-            api=mock.Mock(spec=context.API), locale="en_US", version="0.0.0", session={}
-        )
-
-        bq = model.BreakQueue.create(config, ctx)
+        bq = model.BreakQueue.create(config, self.get_context())
 
         assert bq is not None
 
@@ -158,7 +155,7 @@ class TestBreakQueue:
             model, "_", lambda message: "translated!: " + message, raising=False
         )
 
-        config = model.Config(
+        config = configuration.Config(
             user_config={
                 "short_breaks": [
                     {"name": "break 1"},
@@ -180,11 +177,7 @@ class TestBreakQueue:
             system_config={},
         )
 
-        ctx = context.Context(
-            api=mock.Mock(spec=context.API), locale="en_US", version="0.0.0", session={}
-        )
-
-        bq = model.BreakQueue.create(config, ctx)
+        bq = model.BreakQueue.create(config, self.get_context())
 
         assert bq is not None
 

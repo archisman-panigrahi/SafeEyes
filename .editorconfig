@@ -11,3 +11,6 @@ indent_size = 4
 
 [*.{py}]
 trim_trailing_whitespace = true
+
+[*.{glade}]
+indent_size = 2

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-10-16 11:08+0000\n"
-"Last-Translator: András Soltész <soltesz.andras@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/hu/>\n"
 "Language: hu\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
-msgstr ""
+msgstr "Finoman hunyd be a szemed"
 
 # Short break
 msgid "Roll your eyes a few times to each side"
-msgstr "Mindkét irányba forgasd meg a szemed néhányszor"
+msgstr "Forgasd meg a szemed néhányszor mindkét irányba"
 
 # Short break
 msgid "Rotate your eyes in clockwise direction"
@@ -78,12 +78,12 @@ msgid "start Safe Eyes in debug mode"
 msgstr "Indítsd a Safe Eyes-t debug módban"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr ""
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr "futó Safe Eyes példány állapotának kiírása, majd kilépés"
 
 # Status message
 msgid "Safe Eyes is not running"
-msgstr ""
+msgstr "A Safe Eyes nem fut"
 
 # About dialog
 msgid "Close"
@@ -129,16 +129,12 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Felkészülési idő a pihenő előtt (másodpercben)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Gyorsbillentyűk letiltásának hossza (másodpercben)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Elhalasztás időtartama (percben)"
 
 # Settings dialog
 msgid "Show breaks in random order"
-msgstr ""
+msgstr "A szünetek megjelenítése véletlenszerű sorrendben"
 
 # Settings dialog
 msgid "Strict break (No way to skip breaks)"
@@ -162,7 +158,7 @@ msgstr ""
 
 # Settings dialog
 msgid "Are you sure you want to reset all settings to default?"
-msgstr ""
+msgstr "Biztosan visszaállítja az összes beállítást az alapértelmezettre?"
 
 # Settings dialog
 msgid "Options"
@@ -170,23 +166,23 @@ msgstr "Opciók"
 
 # Settings dialog
 msgid "Short Breaks"
-msgstr "Rövid Pihenők"
+msgstr "Rövid pihenők"
 
 # Settings dialog
 msgid "Long Breaks"
-msgstr "Hosszú Pihenők"
+msgstr "Hosszú pihenők"
 
 # Settings dialog
 msgid "Delete"
-msgstr ""
+msgstr "Törlés"
 
 # Settings dialog
 msgid "Are you sure you want to delete this break?"
-msgstr ""
+msgstr "Biztosan törölni szeretnéd ezt a szünetet?"
 
 # Settings dialog
 msgid "You can't undo this action."
-msgstr ""
+msgstr "Ez a művelet nem vonható vissza."
 
 # Settings dialog
 msgid "Break"
@@ -592,6 +588,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "futó safeeyes példány állapotának kiírása, majd kilépés"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Gyorsbillentyűk letiltásának hossza (másodpercben)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

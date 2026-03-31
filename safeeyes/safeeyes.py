@@ -21,6 +21,7 @@ application.
 """
 
 import atexit
+import gettext
 import logging
 from importlib import metadata
 import typing
@@ -51,11 +52,11 @@ class SafeEyes(Gtk.Application):
     break_screen: BreakScreen
     safe_eyes_core: SafeEyesCore
     plugins_manager: PluginManager
-    system_locale: str
+    system_locale: gettext.NullTranslations
 
     _settings_dialog: typing.Optional[SettingsDialog] = None
 
-    def __init__(self, system_locale: str, config) -> None:
+    def __init__(self, system_locale: gettext.NullTranslations, config) -> None:
         super().__init__(
             application_id="io.github.slgobinath.SafeEyes",
             flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE,

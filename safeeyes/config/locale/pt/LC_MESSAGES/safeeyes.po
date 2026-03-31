@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-21 16:03+0000\n"
-"Last-Translator: Victor Viriato <josevviriato@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/pt/>\n"
 "Language: pt\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -78,7 +78,7 @@ msgid "start Safe Eyes in debug mode"
 msgstr "iniciar o Safe Eyes em modo de depuração"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
+msgid "print the status of running Safe Eyes instance and exit"
 msgstr "mostrar o estado de execução do Safe Eyes e sair"
 
 # Status message
@@ -130,10 +130,6 @@ msgstr "Intervalo entre duas pausas (em minutos)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Tempo de aviso de pausa (em segundos)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Período de desativação dos atalhos de teclado (em segundos)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -601,6 +597,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "mostrar o estado de execução do Safe Eyes e sair"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Período de desativação dos atalhos de teclado (em segundos)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

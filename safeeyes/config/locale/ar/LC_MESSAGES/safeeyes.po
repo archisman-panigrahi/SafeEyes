@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-22 09:20+0000\n"
-"Last-Translator: abdelbasset jabrane <naminio201@users.noreply.hosted."
-"weblate.org>\n"
+"Last-Translator: abdelbasset jabrane "
+"<naminio201@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/ar/>\n"
 "Language: ar\n"
@@ -80,8 +80,8 @@ msgid "start Safe Eyes in debug mode"
 msgstr "ابدأ Safe Eyes في وضع التنقيح (debug)"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
-msgstr "أظهر حالة برنامج Safe Eyes المشتغل حاليا و أخرج"
+msgid "print the status of running Safe Eyes instance and exit"
+msgstr ""
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -129,10 +129,6 @@ msgstr "المدة بين استراحتين (دقائق)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "مدة التجهيز لاستراحة (ثوان)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "مدة تعطيل اختصارات لوحة المفاتيح (ثوان)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -610,6 +606,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "أظهر حالة برنامج Safe Eyes المشتغل حاليا و أخرج"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "مدة تعطيل اختصارات لوحة المفاتيح (ثوان)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

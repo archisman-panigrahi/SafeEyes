@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-03-20 10:04+0000\n"
-"Last-Translator: Dev Verma <devvermatheone@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/hi/>\n"
 "Language: hi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -78,7 +78,7 @@ msgid "start Safe Eyes in debug mode"
 msgstr "डीबग मोड में सेफ आईज शुरू करें"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
+msgid "print the status of running Safe Eyes instance and exit"
 msgstr "सेफ आईज दृष्टांत स्थिति को मुद्रित करें और बाहर निकलें"
 
 # Status message
@@ -127,10 +127,6 @@ msgstr "दो ब्रेक के बीच अंतराल (मिनट
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "ब्रेक के लिए तैयार करने का समय (सेकंड में)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "कीबोर्ड शॉर्टकट अक्षम अवधि (सेकंड में)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -590,6 +586,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "सेफ आईज दृष्टांत स्थिति को मुद्रित करें और बाहर निकलें"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "कीबोर्ड शॉर्टकट अक्षम अवधि (सेकंड में)"
 
 # Short break
 #~ msgid "Tightly close your eyes"

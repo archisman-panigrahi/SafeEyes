@@ -18,6 +18,7 @@
 
 from collections.abc import MutableMapping
 import datetime
+import gettext
 import typing
 
 from safeeyes import utility
@@ -78,7 +79,7 @@ class Context(MutableMapping):
     api: API
     desktop: str
     is_wayland: bool
-    locale: str
+    locale: gettext.NullTranslations
     session: dict[str, typing.Any]
     state: State
 
@@ -92,7 +93,7 @@ class Context(MutableMapping):
     def __init__(
         self,
         api: API,
-        locale: str,
+        locale: gettext.NullTranslations,
         version: str,
         session: dict[str, typing.Any],
     ) -> None:

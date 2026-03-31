@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-09-17 07:59-0400\n"
-"PO-Revision-Date: 2021-05-21 15:32+0000\n"
-"Last-Translator: Jorge Maldonado Ventura <jorgesumle@freakspot.net>\n"
+"PO-Revision-Date: 2026-03-31 05:45+0000\n"
+"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/eo/>\n"
 "Language: eo\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 # Short break
@@ -79,7 +79,7 @@ msgid "start Safe Eyes in debug mode"
 msgstr "komenci Safe Eyes-on en sencimiga reĝimo"
 
 # Commandline arg description
-msgid "print the status of running safeeyes instance and exit"
+msgid "print the status of running Safe Eyes instance and exit"
 msgstr "montri la staton de la rulanta apero de Safe Eyes kaj eliri"
 
 # Status message
@@ -128,10 +128,6 @@ msgstr "Intertempo inter du paŭzoj (en minutoj)"
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
 msgstr "Tempo por prepari por paŭzon (en sekundoj)"
-
-# Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Daŭro de malebligo de fulmoklavoj (en sekundoj)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
@@ -593,6 +589,17 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Commandline arg description
+#~ msgid "print the status of running safeeyes instance and exit"
+#~ msgstr "montri la staton de la rulanta apero de Safe Eyes kaj eliri"
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Daŭro de malebligo de fulmoklavoj (en sekundoj)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"

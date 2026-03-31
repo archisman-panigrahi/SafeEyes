@@ -26,7 +26,7 @@ from safeeyes import utility
 _translations = gettext.NullTranslations()
 
 
-def setup():
+def setup() -> gettext.NullTranslations:
     global _translations
     _translations = gettext.translation(
         "safeeyes",

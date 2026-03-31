@@ -129,10 +129,6 @@ msgid "Time to prepare for a break (in seconds)"
 msgstr "Dags att förbereda sig för en paus (i sekunder)"
 
 # Settings dialog
-msgid "Keyboard shortcuts disabled period (in seconds)"
-msgstr "Kortkommandon inaktiverad period (i sekunder)"
-
-# Settings dialog
 msgid "Postponement duration (in minutes)"
 msgstr "Uppskjutningsvaraktighet (i minuter)"
 
@@ -592,6 +588,13 @@ msgstr ""
 #, python-format
 msgid "Please install one of the command-line tools: %s"
 msgstr ""
+
+msgid "Skipping/postponing disabled period (in seconds)"
+msgstr ""
+
+# Settings dialog
+#~ msgid "Keyboard shortcuts disabled period (in seconds)"
+#~ msgstr "Kortkommandon inaktiverad period (i sekunder)"
 
 # plugin/screensaver
 #~ msgid "Lock the screen after long breaks by starting screensaver"
