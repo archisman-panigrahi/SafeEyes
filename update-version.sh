@@ -27,6 +27,7 @@ fi
 CHANGELOG="debian/changelog"
 METAFILE="safeeyes/platform/io.github.slgobinath.SafeEyes.metainfo.xml"
 PYPROJECT="pyproject.toml"
+AUR_PKGBUILD="AUR/PKGBUILD"
 
 if [ ! -f "$CHANGELOG" ]; then
     echo "Error: $CHANGELOG not found." >&2
@@ -72,6 +73,13 @@ if [ -f "$PYPROJECT" ]; then
     # Use a stable URL: https://github.com/slgobinath/safeeyes/archive/v<version>.tar.gz
     sed -i "s#^[[:space:]]*Downloads = \".*\"#Downloads = \"https://github.com/slgobinath/safeeyes/archive/v$version.tar.gz\"#" "$PYPROJECT" || true
     echo "Updated $PYPROJECT"
+fi
+
+# Update Arch Linux AUR package version if PKGBUILD exists
+if [ -f "$AUR_PKGBUILD" ]; then
+    # Replace pkgver=... at top-level
+    sed -i "s/^pkgver=.*/pkgver=$version/" "$AUR_PKGBUILD"
+    echo "Updated $AUR_PKGBUILD"
 fi
 
 # Update glade about dialog label if present
