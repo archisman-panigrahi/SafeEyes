@@ -64,7 +64,7 @@ class BreakScreen:
         self.keycode_shortcut_skip = 9  # Escape
         self.on_postponed = on_postponed
         self.on_skipped = on_skipped
-        self.fade_in_break_screen = False
+        self.fade_in_break_screen = True
         self.shortcut_disable_time = 2
         self.strict_break = False
         self.windows = []
