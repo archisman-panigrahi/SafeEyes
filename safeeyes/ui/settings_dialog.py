@@ -361,8 +361,7 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.config.set("random_order", self.switch_random_order.get_active())
         self.config.set("allow_postpone", self.switch_postpone.get_active())
         self.config.set(
-            "fade_in_break_screen",
-            self.switch_fade_in_break_screen.get_active(),
+            "fade_in_break_screen", self.switch_fade_in_break_screen.get_active()
         )
         self.config.set("persist_state", self.switch_persist.get_active())
         for plugin in self.config.get("plugins"):
