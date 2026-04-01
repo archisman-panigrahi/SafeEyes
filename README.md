@@ -196,6 +196,7 @@ This method has the same caveats about icons/window icons as running from source
 - Customizable user interface
 - Command-line arguments to control the running instance
 - Customizable using plug-ins
+- Displays clock in the break screen
 
 ## Third-party Plugins
 
