@@ -16,6 +16,7 @@
     "shortcut_skip": 9,
     "shortcut_postpone": 65,
     "fade_in_break_screen": true,
+    "fade_in_break_screen_duration": 3000,
     "strict_break": false,
     "short_breaks": [{
             "name": "Gently close your eyes"

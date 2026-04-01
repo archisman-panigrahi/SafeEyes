@@ -71,6 +71,7 @@ class SettingsDialog(Gtk.ApplicationWindow):
     spin_long_break_interval: Gtk.SpinButton = Gtk.Template.Child()
     spin_time_to_prepare: Gtk.SpinButton = Gtk.Template.Child()
     spin_postpone_duration: Gtk.SpinButton = Gtk.Template.Child()
+    spin_fade_in_break_screen_duration: Gtk.SpinButton = Gtk.Template.Child()
     dropdown_postpone_unit: Gtk.DropDown = Gtk.Template.Child()
     spin_disable_keyboard_shortcut: Gtk.SpinButton = Gtk.Template.Child()
     switch_strict_break: Gtk.Switch = Gtk.Template.Child()
@@ -124,6 +125,9 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.spin_long_break_interval.set_value(config.get("long_break_interval"))
         self.spin_time_to_prepare.set_value(config.get("pre_break_warning_time"))
         self.spin_postpone_duration.set_value(config.get("postpone_duration"))
+        self.spin_fade_in_break_screen_duration.set_value(
+            config.get("fade_in_break_screen_duration", 3000)
+        )
         # Set the active item in the dropdown based on the postpone unit
         if config.get("postpone_unit") == "seconds":
             self.dropdown_postpone_unit.set_selected(1)
@@ -344,6 +348,10 @@ class SettingsDialog(Gtk.ApplicationWindow):
         )
         self.config.set(
             "postpone_duration", self.spin_postpone_duration.get_value_as_int()
+        )
+        self.config.set(
+            "fade_in_break_screen_duration",
+            self.spin_fade_in_break_screen_duration.get_value_as_int(),
         )
         self.config.set(
             "postpone_unit",

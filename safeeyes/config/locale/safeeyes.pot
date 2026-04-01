@@ -573,3 +573,6 @@ msgstr ""
 
 msgid "Fade in when breaks start"
 msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""

@@ -65,6 +65,7 @@ class BreakScreen:
         self.on_postponed = on_postponed
         self.on_skipped = on_skipped
         self.fade_in_break_screen = True
+        self.fade_in_break_screen_duration = 3000
         self.shortcut_disable_time = 2
         self.strict_break = False
         self.windows = []
@@ -98,6 +99,9 @@ class BreakScreen:
         # the buttons are locked
         self.shortcut_disable_time = config.get("shortcut_disable_time", 2)
         self.fade_in_break_screen = config.get("fade_in_break_screen", True)
+        self.fade_in_break_screen_duration = config.get(
+            "fade_in_break_screen_duration", 3000
+        )
         self.strict_break = config.get("strict_break", False)
 
     def skip_break(self) -> None:
@@ -197,6 +201,7 @@ class BreakScreen:
                 self.show_skip_button,
                 self.on_skip_clicked,
                 self.enable_shortcut,
+                self.fade_in_break_screen_duration,
             )
 
             if self.context.is_wayland:
@@ -376,7 +381,6 @@ class BreakScreenWindow(Gtk.Window):
     box_buttons: Gtk.Box = Gtk.Template.Child()
     toolbar: Gtk.Box = Gtk.Template.Child()
 
-    FADE_IN_DURATION_MS = 3000
     FADE_IN_STEP_MS = 16
 
     def __init__(
@@ -394,6 +398,7 @@ class BreakScreenWindow(Gtk.Window):
         show_skip: bool,
         on_skip: typing.Callable[[Gtk.Button], None],
         enable_shortcut: bool,
+        fade_in_duration_ms: int,
     ):
         super().__init__(application=application)
 
@@ -403,6 +408,7 @@ class BreakScreenWindow(Gtk.Window):
         self.fade_in_target_opacity = 1.0
         self.fade_in_start_time: typing.Optional[float] = None
         self.fade_in_timeout_id: typing.Optional[int] = None
+        self.fade_in_duration_ms = max(fade_in_duration_ms, 1)
 
         for tray_action in tray_actions:
             # TODO: apparently, this would be better served with an icon theme
@@ -470,7 +476,7 @@ class BreakScreenWindow(Gtk.Window):
             return False
 
         elapsed_ms = (time.monotonic() - self.fade_in_start_time) * 1000
-        progress = min(elapsed_ms / self.FADE_IN_DURATION_MS, 1.0)
+        progress = min(elapsed_ms / self.fade_in_duration_ms, 1.0)
         self.set_opacity(self.fade_in_target_opacity * progress)
 
         if progress >= 1.0:
