@@ -32,8 +32,9 @@ from safeeyes.translations import translate as _
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
-from gi.repository import Gtk
 from gi.repository import GdkX11
+from gi.repository import GLib
+from gi.repository import Gtk
 
 BREAK_SCREEN_GLADE = os.path.join(utility.BIN_DIRECTORY, "glade/break_screen.glade")
 
@@ -63,6 +64,7 @@ class BreakScreen:
         self.keycode_shortcut_skip = 9  # Escape
         self.on_postponed = on_postponed
         self.on_skipped = on_skipped
+        self.fade_in_break_screen = False
         self.shortcut_disable_time = 2
         self.strict_break = False
         self.windows = []
@@ -95,6 +97,7 @@ class BreakScreen:
         # it used to be just about keyboard shortcuts - now it also controls whether
         # the buttons are locked
         self.shortcut_disable_time = config.get("shortcut_disable_time", 2)
+        self.fade_in_break_screen = config.get("fade_in_break_screen", True)
         self.strict_break = config.get("strict_break", False)
 
     def skip_break(self) -> None:
@@ -208,9 +211,8 @@ class BreakScreen:
 
             self.windows.append(window)
 
-            if self.context.desktop == "kde":
-                # Fix flickering screen in KDE by setting opacity to 1
-                window.set_opacity(0.9)
+            target_opacity = 0.9 if self.context.desktop == "kde" else 1.0
+            window.configure_opacity(target_opacity, self.fade_in_break_screen)
 
             window.present()
 
@@ -233,6 +235,9 @@ class BreakScreen:
                 surface = window.get_surface()
                 if surface is not None:
                     typing.cast(Gdk.Toplevel, surface).inhibit_system_shortcuts(None)
+
+            if self.fade_in_break_screen:
+                window.start_fade_in()
 
             i = i + 1
 
@@ -350,6 +355,7 @@ class BreakScreen:
     def __destroy_all_screens(self) -> None:
         """Close all the break screens."""
         for win in self.windows:
+            win.stop_fade_in()
             win.destroy()
         del self.windows[:]
 
@@ -370,7 +376,8 @@ class BreakScreenWindow(Gtk.Window):
     box_buttons: Gtk.Box = Gtk.Template.Child()
     toolbar: Gtk.Box = Gtk.Template.Child()
 
-    button_widgets: list[Gtk.Button] = []
+    FADE_IN_DURATION_MS = 3000
+    FADE_IN_STEP_MS = 16
 
     def __init__(
         self,
@@ -392,6 +399,10 @@ class BreakScreenWindow(Gtk.Window):
 
         self.on_close = on_close
         self.img_break.set_content_fit(Gtk.ContentFit.SCALE_DOWN)
+        self.button_widgets: list[Gtk.Button] = []
+        self.fade_in_target_opacity = 1.0
+        self.fade_in_start_time: typing.Optional[float] = None
+        self.fade_in_timeout_id: typing.Optional[int] = None
 
         for tray_action in tray_actions:
             # TODO: apparently, this would be better served with an icon theme
@@ -435,6 +446,38 @@ class BreakScreenWindow(Gtk.Window):
             self.__set_break_image(image_path, monitor_width, monitor_height)
         self.lbl_message.set_label(message)
         self.lbl_widget.set_markup(widget)
+
+    def configure_opacity(self, target_opacity: float, fade_in_enabled: bool) -> None:
+        self.fade_in_target_opacity = target_opacity
+        self.set_opacity(0.0 if fade_in_enabled else target_opacity)
+
+    def start_fade_in(self) -> None:
+        self.stop_fade_in()
+        self.fade_in_start_time = time.monotonic()
+        self.fade_in_timeout_id = GLib.timeout_add(
+            self.FADE_IN_STEP_MS, self.__fade_in_step
+        )
+
+    def stop_fade_in(self) -> None:
+        if self.fade_in_timeout_id is not None:
+            GLib.source_remove(self.fade_in_timeout_id)
+            self.fade_in_timeout_id = None
+
+    def __fade_in_step(self) -> bool:
+        if self.fade_in_start_time is None:
+            self.set_opacity(self.fade_in_target_opacity)
+            self.fade_in_timeout_id = None
+            return False
+
+        elapsed_ms = (time.monotonic() - self.fade_in_start_time) * 1000
+        progress = min(elapsed_ms / self.FADE_IN_DURATION_MS, 1.0)
+        self.set_opacity(self.fade_in_target_opacity * progress)
+
+        if progress >= 1.0:
+            self.fade_in_timeout_id = None
+            return False
+
+        return True
 
     def set_count_down(self, count: str, enable_shortcut: bool) -> None:
         self.lbl_count.set_text(count)
@@ -486,4 +529,5 @@ class BreakScreenWindow(Gtk.Window):
     def on_window_delete(self, *args) -> None:
         """Window close event handler."""
         logging.info("Closing the break screen")
+        self.stop_fade_in()
         self.on_close()
