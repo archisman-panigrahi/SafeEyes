@@ -701,7 +701,7 @@ class TrayIcon:
         else:
             description = ""
 
-        self.sni_service.set_title(description or _("Safe Eyes"))
+        self.sni_service.set_title(description or "Safe Eyes")
         self.sni_service.set_tooltip("Safe Eyes", description)
         self.sni_service.set_xayatanalabel(description, description)
 
