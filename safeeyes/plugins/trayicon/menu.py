@@ -69,9 +69,7 @@ def build_info_message(
                     info_message = _("Next break at %s") % (next_time)
         else:
             if wakeup_time:
-                info_message = _("Disabled until %s") % utility.format_time(
-                    wakeup_time
-                )
+                info_message = _("Disabled until %s") % utility.format_time(wakeup_time)
             else:
                 info_message = _("Disabled until restart")
 

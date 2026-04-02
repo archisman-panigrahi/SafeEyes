@@ -310,7 +310,9 @@ def _create_notification() -> Notify.Notification:
         resident_notification.set_hint("resident", GLib.Variant("b", True))
 
     if "actions" in caps:
-        resident_notification.add_action("options", _("Options"), _on_options, None, None)
+        resident_notification.add_action(
+            "options", _("Options"), _on_options, None, None
+        )
         resident_notification.add_action("quit", _("Quit"), _on_quit, None, None)
 
     return resident_notification
@@ -378,7 +380,12 @@ def _refresh_notification() -> None:
         notification = _create_notification()
 
     body = _build_body()
-    payload = ("Safe Eyes", body, "io.github.slgobinath.SafeEyes-enabled", fallback_mode)
+    payload = (
+        "Safe Eyes",
+        body,
+        "io.github.slgobinath.SafeEyes-enabled",
+        fallback_mode,
+    )
     if notification is not None and payload == last_notification_payload:
         return
 
@@ -404,9 +411,7 @@ def _refresh_notification() -> None:
             fallback_mode = True
             _close_notification()
             notification = _create_notification()
-            notification.update(
-                payload[0], payload[1], payload[2]
-            )
+            notification.update(payload[0], payload[1], payload[2])
             try:
                 notification.show()
                 last_notification_payload = (payload[0], payload[1], payload[2], True)
@@ -464,7 +469,9 @@ def _build_body() -> str:
 
 
 def _get_next_break_tuple() -> typing.Optional[tuple[str, typing.Optional[str], bool]]:
-    if context is None or not (context.api.has_breaks() and is_active and next_break_time):
+    if context is None or not (
+        context.api.has_breaks() and is_active and next_break_time
+    ):
         return None
 
     formatted_time = utility.format_time(context.api.get_break_time())
@@ -534,9 +541,7 @@ class _ResidentMenuCallbacks:
             )
         _refresh_all()
 
-    def on_manual_break_clicked(
-        self, break_type: typing.Optional[BreakType]
-    ) -> None:
+    def on_manual_break_clicked(self, break_type: typing.Optional[BreakType]) -> None:
         if context is not None:
             context.api.take_break(break_type)
 
