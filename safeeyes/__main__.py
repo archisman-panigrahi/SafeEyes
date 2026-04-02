@@ -33,6 +33,12 @@ import gi
 gi.require_version("GLib", "2.0")
 from gi.repository import GLib
 
+try:
+    gi.require_version("GLibUnix", "2.0")
+    from gi.repository import GLibUnix
+except (ImportError, ValueError):
+    GLibUnix = None
+
 safe_eyes: typing.Optional[SafeEyes] = None
 
 
@@ -41,7 +47,10 @@ def main() -> None:
     global safe_eyes
 
     # Handle Ctrl + C
-    GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGINT, sigint_caught)
+    if GLibUnix is not None and hasattr(GLibUnix, "signal_add_full"):
+        GLibUnix.signal_add_full(GLib.PRIORITY_DEFAULT, signal.SIGINT, sigint_caught)
+    else:
+        GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGINT, sigint_caught)
 
     system_locale = translations.setup()
 
