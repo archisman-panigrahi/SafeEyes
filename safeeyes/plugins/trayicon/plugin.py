@@ -25,7 +25,7 @@ from gi.repository import Gio, GLib
 import logging
 from safeeyes import utility
 from safeeyes.context import Context
-from trayicon.menu import build_menu_items
+from safeeyes.plugins.trayicon.menu import build_menu_items
 from safeeyes.translations import translate as _
 import typing
 

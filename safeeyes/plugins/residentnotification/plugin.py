@@ -25,8 +25,8 @@ import gi
 from safeeyes import utility
 from safeeyes.context import Context
 from safeeyes.model import BreakType
+from safeeyes.plugins.trayicon.menu import build_info_message, build_menu_items
 from safeeyes.translations import translate as _
-from trayicon.menu import build_info_message, build_menu_items
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Notify", "0.7")
@@ -448,12 +448,7 @@ def _on_notification_closed(closed_notification) -> None:
     if suppress_reopen:
         return
 
-    if reason in (
-        Notify.ClosedReason.DISMISSED,
-        Notify.ClosedReason.EXPIRED,
-        Notify.ClosedReason.UNDEFINED,
-        Notify.ClosedReason.UNSET,
-    ):
+    if reason != Notify.ClosedReason.API_REQUEST:
         _schedule_reopen_notification()
 
 
@@ -475,14 +470,14 @@ def _get_next_break_tuple() -> typing.Optional[tuple[str, typing.Optional[str], 
     ):
         return None
 
-    formatted_time = utility.format_time(context.api.get_break_time())
-    long_time = context.api.get_break_time(BreakType.LONG_BREAK)
+    formatted_time: str = utility.format_time(context.api.get_break_time())
+    long_break_time = context.api.get_break_time(BreakType.LONG_BREAK)
 
-    if long_time:
-        long_time = utility.format_time(long_time)
-        if long_time == formatted_time:
-            return (long_time, long_time, True)
-        return (formatted_time, long_time, False)
+    if long_break_time:
+        formatted_long_time: str = utility.format_time(long_break_time)
+        if formatted_long_time == formatted_time:
+            return (formatted_long_time, formatted_long_time, True)
+        return (formatted_time, formatted_long_time, False)
 
     return (formatted_time, None, False)
 
