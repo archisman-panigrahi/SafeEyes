@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-31 13:02+0000\n"
+"PO-Revision-Date: 2026-04-03 15:09+0000\n"
 "Last-Translator: vikdevelop <vikdevelop@proton.me>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -79,7 +79,7 @@ msgstr "spustit Safe Eyes v režimu pro ladění"
 
 # Commandline arg description
 msgid "print the status of running Safe Eyes instance and exit"
-msgstr ""
+msgstr "vytisknout status puštěné instance Safe Eyes a ukončit aplikaci"
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -604,7 +604,7 @@ msgid "Please install one of the command-line tools: %s"
 msgstr "Nainstalujte prosím jeden z těchto nástrojů příkazového řádku:%s"
 
 msgid "Skipping/postponing disabled period (in seconds)"
-msgstr ""
+msgstr "Přeskakování zakázané periody (v sekundách)"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
