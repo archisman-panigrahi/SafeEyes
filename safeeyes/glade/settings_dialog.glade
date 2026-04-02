@@ -93,9 +93,27 @@
     <property name="icon-name">io.github.slgobinath.SafeEyes</property>
     <signal name="close-request" handler="on_window_delete" swapped="no" />
     <child>
-      <object class="GtkStack" id="stack">
+      <object class="GtkBox" id="content_box">
         <property name="visible">1</property>
-        <property name="interpolate-size">1</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkSearchBar" id="search_bar">
+            <property name="visible">1</property>
+            <property name="search-mode-enabled">0</property>
+            <property name="show-close-button">1</property>
+            <child>
+              <object class="GtkSearchEntry" id="search_entry">
+                <property name="visible">1</property>
+                <property name="hexpand">1</property>
+                <signal name="search-changed" handler="on_search_changed" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="stack">
+            <property name="visible">1</property>
+            <property name="interpolate-size">1</property>
         <child>
           <object class="GtkStackPage">
             <property name="name">Settings</property>
@@ -533,7 +551,7 @@
         </child>
         <child>
           <object class="GtkStackPage">
-            <property name="name">page1</property>
+            <property name="name">Breaks</property>
             <property name="title" translatable="yes">Breaks</property>
             <property name="child">
               <object class="GtkBox" id="box_break">
@@ -648,7 +666,7 @@
         </child>
         <child>
           <object class="GtkStackPage">
-            <property name="name">page2</property>
+            <property name="name">Plugins</property>
             <property name="title" translatable="yes">Plugins</property>
             <property name="child">
               <object class="GtkScrolledWindow" id="scrolledwindow_plugins">
@@ -672,6 +690,8 @@
                 </child>
               </object>
             </property>
+          </object>
+        </child>
           </object>
         </child>
       </object>
@@ -700,7 +720,7 @@
             </child>
           </object>
         </child>
-        <child>
+        <child type="start">
           <object class="GtkMenuButton">
             <property name="visible">1</property>
             <property name="can-focus">1</property>
@@ -715,6 +735,17 @@
                 <property name="icon-size">1</property>
               </object>
             </child>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkButton" id="btn_search">
+            <property name="visible">1</property>
+            <property name="can-focus">1</property>
+            <property name="icon-name">system-search-symbolic</property>
+            <signal name="clicked" handler="on_search_button_clicked" swapped="no"/>
+            <style>
+              <class name="flat"/>
+            </style>
           </object>
         </child>
       </object>

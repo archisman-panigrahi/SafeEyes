@@ -53,6 +53,20 @@ SETTINGS_ITEM_INT_GLADE = os.path.join(utility.BIN_DIRECTORY, "glade/item_int.gl
 SETTINGS_ITEM_TEXT_GLADE = os.path.join(utility.BIN_DIRECTORY, "glade/item_text.glade")
 SETTINGS_ITEM_BOOL_GLADE = os.path.join(utility.BIN_DIRECTORY, "glade/item_bool.glade")
 
+BREAK_SETTINGS_SEARCH_TERMS = [
+    _("Break Settings"),
+    _("Break"),
+    _("Type"),
+    _("Image"),
+    _("Time to wait"),
+    _("Override"),
+    _("Time (in minutes)"),
+    _("Duration"),
+    _("Time (in seconds)"),
+    _("Plugins"),
+]
+SEARCHABLE_PLUGIN_SETTING_TYPES = {"INT", "TEXT", "BOOL"}
+
 
 @Gtk.Template(filename=SETTINGS_DIALOG_GLADE)
 class SettingsDialog(Gtk.ApplicationWindow):
@@ -60,8 +74,31 @@ class SettingsDialog(Gtk.ApplicationWindow):
 
     __gtype_name__ = "SettingsDialog"
 
+    stack: Gtk.Stack = Gtk.Template.Child()
+    search_bar: Gtk.SearchBar = Gtk.Template.Child()
+    search_entry: Gtk.SearchEntry = Gtk.Template.Child()
+    scrolledwindow_settings: Gtk.ScrolledWindow = Gtk.Template.Child()
+    frame_short_breaks: Gtk.Frame = Gtk.Template.Child()
+    frame_long_breaks: Gtk.Frame = Gtk.Template.Child()
+    frame_options: Gtk.Frame = Gtk.Template.Child()
+    box7: Gtk.Box = Gtk.Template.Child()
+    box2: Gtk.Box = Gtk.Template.Child()
+    box8: Gtk.Box = Gtk.Template.Child()
+    box3: Gtk.Box = Gtk.Template.Child()
+    box6: Gtk.Box = Gtk.Template.Child()
+    box16_random_order: Gtk.Box = Gtk.Template.Child()
+    box9: Gtk.Box = Gtk.Template.Child()
+    box11: Gtk.Box = Gtk.Template.Child()
+    box10: Gtk.Box = Gtk.Template.Child()
+    box5: Gtk.Box = Gtk.Template.Child()
+    box1: Gtk.Box = Gtk.Template.Child()
+    expander_short_breaks: Gtk.Expander = Gtk.Template.Child()
+    expander_long_breaks: Gtk.Expander = Gtk.Template.Child()
+    separator_breaks: Gtk.Separator = Gtk.Template.Child()
+    box_break: Gtk.Box = Gtk.Template.Child()
     box_short_breaks: Gtk.Box = Gtk.Template.Child()
     box_long_breaks: Gtk.Box = Gtk.Template.Child()
+    scrolledwindow_plugins: Gtk.ScrolledWindow = Gtk.Template.Child()
     box_plugins: Gtk.Box = Gtk.Template.Child()
     popover: Gtk.MenuButton = Gtk.Template.Child()
 
@@ -81,6 +118,10 @@ class SettingsDialog(Gtk.ApplicationWindow):
 
     plugin_items: dict[str, "PluginItem"]
     plugin_map: dict[str, str]
+    settings_search_sections: list[
+        tuple[Gtk.Frame, str, list[tuple[Gtk.Widget, str]]]
+    ]
+    stack_pages: dict[str, Gtk.Widget]
     config: Config
 
     def __init__(
@@ -95,11 +136,22 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.on_save_settings = on_save_settings
         self.plugin_items = {}
         self.plugin_map = {}
+        self.settings_search_sections = []
+        self.stack_pages = {
+            "Settings": self.scrolledwindow_settings,
+            "Breaks": self.box_break,
+            "Plugins": self.scrolledwindow_plugins,
+        }
         self.last_short_break_interval = config.get("short_break_interval")
         self.initializing = True
         self.infobar_long_break_shown = False
 
         self.info_bar_long_break.hide()
+        self.search_bar.connect_entry(self.search_entry)
+        self.search_bar.set_key_capture_widget(self)
+        self.search_bar.connect(
+            "notify::search-mode-enabled", self.__on_search_mode_changed
+        )
 
         # Set the current values of input fields
         self.__initialize(config)
@@ -109,12 +161,19 @@ class SettingsDialog(Gtk.ApplicationWindow):
     def __initialize(self, config: Config) -> None:
         # Don't show infobar for changes made internally
         self.infobar_long_break_shown = True
+        self.plugin_items = {}
+        plugin_configs = utility.load_plugins_config(config)
+        self.plugin_map = {
+            plugin_config["id"]: plugin_config["meta"]["name"]
+            for plugin_config in plugin_configs
+            if plugin_config.get("break_override_allowed", False)
+        }
         for short_break in config.get("short_breaks"):
             self.__create_break_item(short_break, True)
         for long_break in config.get("long_breaks"):
             self.__create_break_item(long_break, False)
 
-        for plugin_config in utility.load_plugins_config(config):
+        for plugin_config in plugin_configs:
             self.box_plugins.append(self.__create_plugin_item(plugin_config))
 
         self.spin_short_break_duration.set_value(config.get("short_break_duration"))
@@ -135,6 +194,25 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.switch_random_order.set_active(config.get("random_order"))
         self.switch_postpone.set_active(config.get("allow_postpone"))
         self.switch_persist.set_active(config.get("persist_state"))
+        self.settings_search_sections = [
+            self.__build_settings_search_section(
+                self.frame_short_breaks, self.box7, self.box2
+            ),
+            self.__build_settings_search_section(
+                self.frame_long_breaks, self.box8, self.box3
+            ),
+            self.__build_settings_search_section(
+                self.frame_options,
+                self.box6,
+                self.box16_random_order,
+                self.box9,
+                self.box11,
+                self.box10,
+                self.box5,
+                self.box1,
+            ),
+        ]
+        self.__apply_search_filter()
         self.infobar_long_break_shown = False
 
     def __create_break_item(self, break_config: dict, is_short: bool) -> None:
@@ -145,25 +223,28 @@ class SettingsDialog(Gtk.ApplicationWindow):
 
         box: "BreakItem" = BreakItem(
             break_name=break_config["name"],
+            search_text=self.__build_break_search_text(break_config, is_short),
             on_properties=lambda: self.__show_break_properties_dialog(
                 break_config,
                 is_short,
                 self.config,
-                on_close=lambda cfg: box.set_break_name(cfg["name"]),
+                on_close=lambda cfg: self.__update_break_item(box, cfg, is_short),
                 on_add=lambda is_short, break_config: self.__create_break_item(
                     break_config, is_short
                 ),
-                on_remove=lambda: parent_box.remove(box),
+                on_remove=lambda: self.__remove_child(parent_box, box),
             ),
             on_delete=lambda: self.__delete_break(
                 break_config,
                 is_short,
-                lambda: parent_box.remove(box),
+                lambda: self.__remove_child(parent_box, box),
             ),
         )
 
         box.set_visible(True)
         parent_box.append(box)
+        if not self.initializing:
+            self.__apply_search_filter()
 
     @Gtk.Template.Callback()
     def on_reset_menu_clicked(self, button: Gtk.Button) -> None:
@@ -197,6 +278,186 @@ class SettingsDialog(Gtk.ApplicationWindow):
         while (child := widget.get_last_child()) is not None:
             widget.remove(child)
 
+    def __remove_child(self, parent: Gtk.Box, child: Gtk.Widget) -> None:
+        parent.remove(child)
+        self.__apply_search_filter()
+
+    def __update_break_item(
+        self, box: "BreakItem", break_config: dict, is_short: bool
+    ) -> None:
+        box.set_break_name(break_config["name"])
+        box.set_search_text(self.__build_break_search_text(break_config, is_short))
+        self.__apply_search_filter()
+
+    def __build_break_search_text(self, break_config: dict, is_short: bool) -> str:
+        search_terms = [
+            break_config["name"],
+            _(break_config["name"]),
+            *BREAK_SETTINGS_SEARCH_TERMS,
+            _("Short") if is_short else _("Long"),
+        ]
+
+        if break_config.get("plugins") is not None:
+            for plugin_id in break_config["plugins"]:
+                if plugin_id in self.plugin_map:
+                    search_terms.extend(
+                        [self.plugin_map[plugin_id], _(self.plugin_map[plugin_id])]
+                    )
+
+        return self.__normalize_search_text(*search_terms)
+
+    def __build_plugin_search_text(self, plugin_config: dict) -> str:
+        search_terms = [
+            plugin_config["meta"]["name"],
+            _(plugin_config["meta"]["name"]),
+            plugin_config["meta"]["description"],
+            _(plugin_config["meta"]["description"]),
+        ]
+        for setting in plugin_config.get("settings", []):
+            setting_type = setting.get("type", "").upper()
+            if setting_type in SEARCHABLE_PLUGIN_SETTING_TYPES and "label" in setting:
+                search_terms.extend([setting["label"], _(setting["label"])])
+        return self.__normalize_search_text(*search_terms)
+
+    def __iter_children(self, widget: Gtk.Widget) -> typing.Iterator[Gtk.Widget]:
+        child = widget.get_first_child()
+        while child is not None:
+            yield child
+            child = child.get_next_sibling()
+
+    def __get_frame_title(self, frame: Gtk.Frame) -> str:
+        label_widget = frame.get_label_widget()
+        if isinstance(label_widget, Gtk.Label):
+            return label_widget.get_label()
+        return ""
+
+    def __build_settings_search_section(
+        self, frame: Gtk.Frame, *rows: Gtk.Widget
+    ) -> tuple[Gtk.Frame, str, list[tuple[Gtk.Widget, str]]]:
+        return (
+            frame,
+            self.__normalize_search_text(self.__get_frame_title(frame)),
+            [(row, self.__widget_search_text(row)) for row in rows],
+        )
+
+    def __normalize_search_text(self, *parts: str) -> str:
+        return " ".join(part for part in parts if part).casefold()
+
+    def __widget_search_text(self, widget: Gtk.Widget) -> str:
+        parts: list[str] = []
+        self.__collect_widget_search_text(widget, parts)
+        return self.__normalize_search_text(*parts)
+
+    def __collect_widget_search_text(
+        self, widget: Gtk.Widget, parts: list[str]
+    ) -> None:
+        if isinstance(widget, Gtk.Label):
+            label = widget.get_label()
+            if label:
+                parts.append(label)
+        elif isinstance(widget, Gtk.LinkButton):
+            label = widget.get_label()
+            if label:
+                parts.append(label)
+
+        for child in self.__iter_children(widget):
+            self.__collect_widget_search_text(child, parts)
+
+    def __matches_query(self, text: str, query: str) -> bool:
+        return not query or query in text
+
+    def __apply_search_filter(self) -> None:
+        query = self.search_entry.get_text().strip().casefold()
+        has_matches = {
+            "Settings": self.__apply_settings_search_filter(query),
+            "Breaks": self.__apply_break_search_filter(query),
+            "Plugins": self.__apply_plugin_search_filter(query),
+        }
+        self.__update_stack_page_visibility(query, has_matches)
+
+    def __apply_settings_search_filter(self, query: str) -> bool:
+        has_visible_frame = False
+        for frame, title, rows in self.settings_search_sections:
+            show_all_rows = self.__matches_query(title, query)
+            visible_row_found = False
+            for row, row_search_text in rows:
+                is_visible = show_all_rows or self.__matches_query(
+                    row_search_text, query
+                )
+                row.set_visible(is_visible)
+                visible_row_found = visible_row_found or is_visible
+            frame.set_visible(visible_row_found)
+            has_visible_frame = has_visible_frame or visible_row_found
+        return has_visible_frame
+
+    def __apply_break_search_filter(self, query: str) -> bool:
+        short_visible = self.__apply_break_section_filter(
+            self.expander_short_breaks,
+            self.box_short_breaks,
+            self.__normalize_search_text(self.expander_short_breaks.get_label() or ""),
+            query,
+        )
+        long_visible = self.__apply_break_section_filter(
+            self.expander_long_breaks,
+            self.box_long_breaks,
+            self.__normalize_search_text(self.expander_long_breaks.get_label() or ""),
+            query,
+        )
+        self.separator_breaks.set_visible(short_visible and long_visible)
+        return short_visible or long_visible
+
+    def __apply_break_section_filter(
+        self, expander: Gtk.Expander, container: Gtk.Box, title: str, query: str
+    ) -> bool:
+        show_all_rows = self.__matches_query(title, query)
+        visible_row_found = False
+        for child in self.__iter_children(container):
+            is_visible = show_all_rows or (
+                isinstance(child, BreakItem) and child.matches_query(query)
+            )
+            child.set_visible(is_visible)
+            visible_row_found = visible_row_found or is_visible
+        expander.set_visible(visible_row_found)
+        if query and visible_row_found:
+            expander.set_expanded(True)
+        return visible_row_found
+
+    def __apply_plugin_search_filter(self, query: str) -> bool:
+        has_visible_plugin = False
+        for child in self.__iter_children(self.box_plugins):
+            is_visible = isinstance(child, PluginItem) and child.matches_query(query)
+            child.set_visible(is_visible)
+            has_visible_plugin = has_visible_plugin or is_visible
+        return has_visible_plugin
+
+    def __update_stack_page_visibility(
+        self, query: str, has_matches: dict[str, bool]
+    ) -> None:
+        visible_page_names: list[str] = []
+        for page_name, page_widget in self.stack_pages.items():
+            page = self.stack.get_page(page_widget)
+            is_visible = not query or has_matches[page_name]
+            page.set_visible(is_visible)
+            if is_visible:
+                visible_page_names.append(page_name)
+
+        if not visible_page_names:
+            return
+
+        current_page_name = self.stack.get_visible_child_name()
+        if current_page_name not in visible_page_names:
+            self.stack.set_visible_child_name(visible_page_names[0])
+
+    def __on_search_mode_changed(self, search_bar, _param_spec) -> None:
+        if search_bar.get_search_mode():
+            self.search_entry.grab_focus()
+            return
+
+        if self.search_entry.get_text():
+            self.search_entry.set_text("")
+        else:
+            self.__apply_search_filter()
+
     def __delete_break(
         self, break_config: dict, is_short: bool, on_remove: typing.Callable[[], None]
     ) -> None:
@@ -226,6 +487,7 @@ class SettingsDialog(Gtk.ApplicationWindow):
         """Create an entry for plugin to be listed in the plugin tab."""
         box = PluginItem(
             plugin_config,
+            self.__build_plugin_search_text(plugin_config),
             on_properties=lambda: self.__show_plugins_properties_dialog(plugin_config),
         )
 
@@ -267,6 +529,17 @@ class SettingsDialog(Gtk.ApplicationWindow):
     def show(self) -> None:
         """Show the SettingsDialog."""
         self.present()
+
+    @Gtk.Template.Callback()
+    def on_search_button_clicked(self, button: Gtk.Button) -> None:
+        should_enable_search = not self.search_bar.get_search_mode()
+        self.search_bar.set_search_mode(should_enable_search)
+        if should_enable_search:
+            self.search_entry.grab_focus()
+
+    @Gtk.Template.Callback()
+    def on_search_changed(self, entry: Gtk.SearchEntry) -> None:
+        self.__apply_search_filter()
 
     @Gtk.Template.Callback()
     def on_switch_postpone_activate(self, switch, state) -> None:
@@ -374,6 +647,7 @@ class BreakItem(Gtk.Box):
     def __init__(
         self,
         break_name: str,
+        search_text: str,
         on_properties: typing.Callable[[], None],
         on_delete: typing.Callable[[], None],
     ):
@@ -381,11 +655,18 @@ class BreakItem(Gtk.Box):
 
         self.on_properties = on_properties
         self.on_delete = on_delete
+        self.search_text = search_text
 
         self.lbl_name.set_label(_(break_name))
 
     def set_break_name(self, break_name: str) -> None:
         self.lbl_name.set_label(_(break_name))
+
+    def set_search_text(self, search_text: str) -> None:
+        self.search_text = search_text
+
+    def matches_query(self, query: str) -> bool:
+        return query in self.search_text
 
     @Gtk.Template.Callback()
     def on_properties_clicked(self, button) -> None:
@@ -408,11 +689,17 @@ class PluginItem(Gtk.Box):
     btn_plugin_extra_link: Gtk.LinkButton = Gtk.Template.Child()
     img_plugin_icon: Gtk.Image = Gtk.Template.Child()
 
-    def __init__(self, plugin_config: dict, on_properties: typing.Callable[[], None]):
+    def __init__(
+        self,
+        plugin_config: dict,
+        search_text: str,
+        on_properties: typing.Callable[[], None],
+    ):
         super().__init__()
 
         self.on_properties = on_properties
         self.plugin_config = plugin_config
+        self.search_text = search_text
 
         self.lbl_plugin_name.set_label(_(plugin_config["meta"]["name"]))
         self.switch_enable.set_active(plugin_config["enabled"])
@@ -446,6 +733,9 @@ class PluginItem(Gtk.Box):
 
     def is_enabled(self) -> bool:
         return self.switch_enable.get_active()
+
+    def matches_query(self, query: str) -> bool:
+        return query in self.search_text
 
     @Gtk.Template.Callback()
     def on_disable_errored(self, button) -> None:
