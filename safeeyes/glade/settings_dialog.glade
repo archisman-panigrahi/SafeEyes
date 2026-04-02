@@ -88,7 +88,7 @@
   </object>
   <template parent="GtkApplicationWindow" class="SettingsDialog">
     <property name="title">Safe Eyes</property>
-    <property name="default-width">450</property>
+    <property name="default-width">360</property>
     <property name="default-height">650</property>
     <property name="icon-name">io.github.slgobinath.SafeEyes</property>
     <signal name="close-request" handler="on_window_delete" swapped="no" />
@@ -132,12 +132,15 @@
                                 <child>
                                   <object class="GtkBox" id="box7">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_interval_between_breaks">
+                                        <property name="hexpand">1</property>
                                         <property name="halign">start</property>
                                         <property name="visible">1</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Interval between two breaks (in minutes)</property>
                                       </object>
                                     </child>
@@ -161,12 +164,15 @@
                                 <child>
                                   <object class="GtkBox" id="box2">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_short_break_duration">
+                                        <property name="hexpand">1</property>
                                         <property name="halign">start</property>
                                         <property name="visible">1</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Break duration (in seconds)</property>
                                       </object>
                                     </child>
@@ -229,6 +235,7 @@
                                         <child>
                                           <object class="GtkLabel" id="label2">
                                             <property name="visible">1</property>
+                                            <property name="wrap">1</property>
                                             <property name="label" translatable="yes">Long break interval must be a multiple of short break interval</property>
                                             <property name="xalign">0</property>
                                           </object>
@@ -243,12 +250,15 @@
                                 <child>
                                   <object class="GtkBox" id="box8">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_short_per_long">
+                                        <property name="hexpand">1</property>
                                         <property name="halign">start</property>
                                         <property name="visible">1</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Interval between two breaks (in minutes)</property>
                                       </object>
                                     </child>
@@ -274,12 +284,15 @@
                                 <child>
                                   <object class="GtkBox" id="box3">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_long_break_duration">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Break duration (in seconds)</property>
                                       </object>
                                     </child>
@@ -325,12 +338,15 @@
                                 <child>
                                   <object class="GtkBox" id="box6">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_time_to_prepare">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Time to prepare for a break (in seconds)</property>
                                       </object>
                                     </child>
@@ -353,12 +369,15 @@
                                 <child>
                                   <object class="GtkBox" id="box16_random_order">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_random_order">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Show breaks in random order</property>
                                       </object>
                                     </child>
@@ -375,12 +394,15 @@
                                 <child>
                                   <object class="GtkBox" id="box9">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_strict_break">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Strict break (No way to skip breaks)</property>
                                       </object>
                                     </child>
@@ -397,12 +419,15 @@
                                 <child>
                                   <object class="GtkBox" id="box11">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_allow_postpone">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Allow postponing breaks</property>
                                       </object>
                                     </child>
@@ -419,11 +444,14 @@
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="box10">
-                                    <property name="spacing">5</property>
+                                    <property name="spacing">2</property>
                                     <property name="visible">1</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_postpone_duration">
+                                        <property name="hexpand">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Postponement duration in</property>
                                         <property name="visible">1</property>
                                       </object>
@@ -432,7 +460,6 @@
                                       <object class="GtkDropDown" id="dropdown_postpone_unit">
                                         <property name="halign">start</property>
                                         <property name="valign">center</property>
-                                        <property name="hexpand">true</property>
                                         <property name="vexpand">false</property>
                                         <property name="selected">0</property>
                                         <property name="model">
@@ -451,8 +478,6 @@
                                         <property name="can-focus">1</property>
                                         <property name="climb-rate">1</property>
                                         <property name="halign">end</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="hexpand-set">True</property>
                                         <property name="numeric">1</property>
                                         <property name="text">1</property>
                                         <property name="update-policy">if-valid</property>
@@ -466,12 +491,15 @@
                                 <child>
                                   <object class="GtkBox" id="box5">
                                     <property name="visible">1</property>
-                                    <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">2</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_shortcuts">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Skipping/postponing disabled period (in seconds)</property>
                                       </object>
                                     </child>
@@ -495,11 +523,14 @@
                                   <object class="GtkBox" id="box1">
                                     <property name="visible">1</property>
                                     <property name="spacing">5</property>
-                                    <property name="homogeneous">1</property>
+                                    <property name="homogeneous">0</property>
                                     <child>
                                       <object class="GtkLabel" id="lbl_persist_state">
+                                        <property name="hexpand">1</property>
                                         <property name="visible">1</property>
                                         <property name="halign">start</property>
+                                        <property name="wrap">1</property>
+                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Persist the internal state</property>
                                       </object>
                                     </child>
