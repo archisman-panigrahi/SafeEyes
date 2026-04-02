@@ -305,10 +305,14 @@ def _create_notification() -> Notify.Notification:
     )
     resident_notification.connect("closed", _on_notification_closed)
     caps = _get_server_caps()
+    resident_notification.set_hint(
+        "desktop-entry", GLib.Variant("s", "io.github.slgobinath.SafeEyes")
+    )
 
     if _uses_temporary_phosh_notification():
         resident_notification.set_timeout(PHOSH_NOTIFICATION_TIMEOUT_MS)
-        resident_notification.set_hint("transient", GLib.Variant("b", True))
+        resident_notification.set_hint("resident", GLib.Variant("b", True))
+        resident_notification.set_hint("x-phosh-fb-profile", GLib.Variant("s", "quiet"))
     elif not fallback_mode:
         resident_notification.set_timeout(Notify.EXPIRES_NEVER)
         resident_notification.set_hint("resident", GLib.Variant("b", True))
