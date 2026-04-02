@@ -28,6 +28,8 @@ The plugin.py can have following lifecycle methods but all are optional:
  - init(context, safeeyes_config, plugin_config)
     Initialize the plugin. Will be called after loading and after every changes in
     configuration
+ - on_activate()
+    Executes when an already-running Safe Eyes instance is activated again
  - on_start()
     Executes when Safe Eyes is enabled
  - on_stop()
@@ -184,6 +186,11 @@ class PluginManager:
         """Execute the on_start() function of plugins."""
         for plugin in self.__plugins.values():
             plugin.call_plugin_method("on_start")
+
+    def activate(self) -> None:
+        """Execute the on_activate() function of plugins."""
+        for plugin in self.__plugins.values():
+            plugin.call_plugin_method("on_activate")
 
     def stop(self) -> None:
         """Execute the on_stop() function of plugins."""

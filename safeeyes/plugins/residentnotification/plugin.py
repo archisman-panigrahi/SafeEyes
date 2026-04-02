@@ -168,6 +168,11 @@ def on_start():
     _refresh_all()
 
 
+def on_activate() -> None:
+    if _uses_temporary_phosh_notification():
+        _refresh_all()
+
+
 def on_stop():
     global is_active
     is_active = False
