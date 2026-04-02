@@ -293,11 +293,12 @@ class LoadedPlugin:
 
     def __init__(self, plugin: dict) -> None:
         (plugin_config, plugin_dir) = self._load_config_json(plugin["id"])
+        state = utility.resolve_plugin_state(plugin, plugin_config)
 
         self.id = plugin["id"]
         self.plugin_config = plugin_config
         self.plugin_dir = plugin_dir
-        self.enabled = plugin["enabled"]
+        self.enabled = state["enabled"]
         self.break_override_allowed = plugin_config.get("break_override_allowed", False)
         self.required_plugin = plugin_config.get("required_plugin", False)
 
@@ -324,11 +325,13 @@ class LoadedPlugin:
             self._import_plugin()
 
     def reload_config(self, plugin: dict) -> None:
-        if not plugin["enabled"]:
+        state = utility.resolve_plugin_state(plugin, self.plugin_config)
+
+        if not state["enabled"]:
             self.disable()
             return
 
-        if not self.enabled and plugin["enabled"]:
+        if not self.enabled and state["enabled"]:
             self.enabled = True
 
         # Update the config
