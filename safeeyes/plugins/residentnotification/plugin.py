@@ -61,7 +61,7 @@ reopen_timeout_id: typing.Optional[int] = None
 REFRESH_DEBOUNCE_MS = 300
 RATE_LIMIT_RETRY_MS = 2000
 REOPEN_DELAY_MS = 1000
-PHOSH_NOTIFICATION_TIMEOUT_MS = 2000
+PHOSH_NOTIFICATION_TIMEOUT_MS = 500
 
 
 class ResidentOptionsWindow(Gtk.Window):
