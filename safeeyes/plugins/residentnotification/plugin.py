@@ -61,6 +61,7 @@ reopen_timeout_id: typing.Optional[int] = None
 REFRESH_DEBOUNCE_MS = 300
 RATE_LIMIT_RETRY_MS = 2000
 REOPEN_DELAY_MS = 1000
+PHOSH_NOTIFICATION_TIMEOUT_MS = 2000
 
 
 class ResidentOptionsWindow(Gtk.Window):
@@ -305,7 +306,10 @@ def _create_notification() -> Notify.Notification:
     resident_notification.connect("closed", _on_notification_closed)
     caps = _get_server_caps()
 
-    if not fallback_mode:
+    if _uses_temporary_phosh_notification():
+        resident_notification.set_timeout(PHOSH_NOTIFICATION_TIMEOUT_MS)
+        resident_notification.set_hint("transient", GLib.Variant("b", True))
+    elif not fallback_mode:
         resident_notification.set_timeout(Notify.EXPIRES_NEVER)
         resident_notification.set_hint("resident", GLib.Variant("b", True))
 
@@ -316,6 +320,10 @@ def _create_notification() -> Notify.Notification:
         resident_notification.add_action("quit", _("Quit"), _on_quit, None, None)
 
     return resident_notification
+
+
+def _uses_temporary_phosh_notification() -> bool:
+    return context is not None and context.desktop == "phosh"
 
 
 def _refresh_all() -> None:
@@ -446,6 +454,9 @@ def _on_notification_closed(closed_notification) -> None:
     last_notification_payload = None
 
     if suppress_reopen:
+        return
+
+    if _uses_temporary_phosh_notification():
         return
 
     if reason != Notify.ClosedReason.API_REQUEST:
