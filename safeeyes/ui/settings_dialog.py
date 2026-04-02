@@ -439,9 +439,7 @@ class PluginItem(Gtk.Box):
         else:
             description = _(plugin_config["meta"]["description"])
             if self.locked:
-                description += " " + _(
-                    "This plugin is managed automatically for the current desktop environment."
-                )
+                description += " " + _("Managed automatically for this desktop env.")
             self.lbl_plugin_description.set_label(description)
             if plugin_config["settings"] and not self.locked:
                 self.btn_properties.set_sensitive(True)

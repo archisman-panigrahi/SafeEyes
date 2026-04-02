@@ -420,7 +420,8 @@ def _refresh_notification() -> None:
                 fallback_error_text = str(fallback_error)
                 if "ExcessNotificationGeneration" in fallback_error_text:
                     logging.warning(
-                        "Resident notification rate-limited after fallback, retrying later: %s",
+                        "Resident notification rate-limited after fallback, "
+                        "retrying later: %s",
                         fallback_error,
                     )
                     _schedule_refresh_ui(RATE_LIMIT_RETRY_MS)
