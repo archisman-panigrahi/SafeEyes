@@ -65,7 +65,7 @@ REOPEN_DELAY_MS = 1000
 
 class ResidentOptionsWindow(Gtk.Window):
     def __init__(self) -> None:
-        super().__init__(title=_("Safe Eyes Options"))
+        super().__init__(title="Safe Eyes " + _("Options"))
 
         self.set_default_size(320, 420)
         self.set_resizable(True)
@@ -459,7 +459,7 @@ def _on_notification_closed(closed_notification) -> None:
 
 def _build_body() -> str:
     if context is None:
-        return _("Safe Eyes")
+        return "Safe Eyes"
 
     return build_info_message(
         context,
