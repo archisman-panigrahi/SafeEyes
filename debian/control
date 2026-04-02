@@ -17,6 +17,7 @@ Depends: ${misc:Depends}, ${python3:Depends},
  python3-packaging,
  gir1.2-notify-0.7,
  gir1.2-gtk-4.0,
+ gir1.2-adw-1,
  ffmpeg | pipewire,
  python3-xlib
 Recommends:

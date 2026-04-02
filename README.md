@@ -124,6 +124,7 @@ Ensure to meet the following dependencies:
 
 - `gir1.2-notify-0.7`
 - `gir1.2-gtk-4.0`
+- `gir1.2-adw-1`
 - `ffmpeg` or `pipewire` (any of them works)
 - `python3` (>= 3.10.0)
 - `python3-gi`
