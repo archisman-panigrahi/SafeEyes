@@ -61,7 +61,7 @@ reopen_timeout_id: typing.Optional[int] = None
 REFRESH_DEBOUNCE_MS = 300
 RATE_LIMIT_RETRY_MS = 2000
 REOPEN_DELAY_MS = 1000
-PHOSH_NOTIFICATION_TIMEOUT_MS = 500
+MOBILE_NOTIFICATION_TIMEOUT_MS = 500
 
 
 class ResidentOptionsWindow(Gtk.Window):
@@ -169,7 +169,7 @@ def on_start():
 
 
 def on_activate() -> None:
-    if _uses_temporary_phosh_notification():
+    if _uses_temporary_mobile_notification():
         _refresh_all()
 
 
@@ -314,10 +314,13 @@ def _create_notification() -> Notify.Notification:
         "desktop-entry", GLib.Variant("s", "io.github.slgobinath.SafeEyes")
     )
 
-    if _uses_temporary_phosh_notification():
-        resident_notification.set_timeout(PHOSH_NOTIFICATION_TIMEOUT_MS)
+    if _uses_temporary_mobile_notification():
+        resident_notification.set_timeout(MOBILE_NOTIFICATION_TIMEOUT_MS)
         resident_notification.set_hint("resident", GLib.Variant("b", True))
-        resident_notification.set_hint("x-phosh-fb-profile", GLib.Variant("s", "quiet"))
+        if _uses_temporary_phosh_notification():
+            resident_notification.set_hint(
+                "x-phosh-fb-profile", GLib.Variant("s", "quiet")
+            )
     elif not fallback_mode:
         resident_notification.set_timeout(Notify.EXPIRES_NEVER)
         resident_notification.set_hint("resident", GLib.Variant("b", True))
@@ -333,6 +336,14 @@ def _create_notification() -> Notify.Notification:
 
 def _uses_temporary_phosh_notification() -> bool:
     return context is not None and context.desktop == "phosh"
+
+
+def _uses_temporary_mobile_notification() -> bool:
+    return context is not None and context.desktop in {
+        "phosh",
+        "plasma-mobile",
+        "sxmo",
+    }
 
 
 def _refresh_all() -> None:
@@ -465,7 +476,9 @@ def _on_notification_closed(closed_notification) -> None:
     if suppress_reopen:
         return
 
-    if _uses_temporary_phosh_notification():
+    if _uses_temporary_mobile_notification():
+        if reason == Notify.ClosedReason.DISMISSED:
+            _schedule_reopen_notification()
         return
 
     if reason != Notify.ClosedReason.API_REQUEST:
