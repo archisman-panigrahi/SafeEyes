@@ -13,6 +13,15 @@ fi
 version="$1"
 message="$2"
 
+xml_escape() {
+    printf '%s' "$1" \
+        | sed -e 's/&/\&amp;/g' \
+              -e 's/</\&lt;/g' \
+              -e 's/>/\&gt;/g' \
+              -e 's/"/\&quot;/g' \
+              -e "s/'/\&apos;/g"
+}
+
 # Validate version format (allow x.y or x.y.z)
 if [[ ! "$version" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
     echo "Warning: Version '$version' does not match the standard format x.y or x.y.z."
@@ -27,6 +36,7 @@ fi
 CHANGELOG="debian/changelog"
 METAFILE="safeeyes/platform/io.github.slgobinath.SafeEyes.metainfo.xml"
 PYPROJECT="pyproject.toml"
+AUR_PKGBUILD="AUR/PKGBUILD"
 
 if [ ! -f "$CHANGELOG" ]; then
     echo "Error: $CHANGELOG not found." >&2
@@ -47,6 +57,8 @@ maintainer="$name <$email>"
 # Dates
 rfc_date=$(date -u '+%a, %d %b %Y %H:%M:%S +0000')
 iso_date=$(date -u '+%Y-%m-%d')
+release_url="https://github.com/slgobinath/safeeyes/releases/tag/v$version"
+xml_message=$(xml_escape "$message")
 
 # Determine distribution string from existing changelog first entry, fallback to 'noble'
 dist=$(sed -n '1,120p' "$CHANGELOG" | grep -m1 '^safeeyes (' | sed -n 's/.*) \([^;]*\);.*/\1/p' || true)
@@ -72,6 +84,13 @@ if [ -f "$PYPROJECT" ]; then
     # Use a stable URL: https://github.com/slgobinath/safeeyes/archive/v<version>.tar.gz
     sed -i "s#^[[:space:]]*Downloads = \".*\"#Downloads = \"https://github.com/slgobinath/safeeyes/archive/v$version.tar.gz\"#" "$PYPROJECT" || true
     echo "Updated $PYPROJECT"
+fi
+
+# Update Arch Linux AUR package version if PKGBUILD exists
+if [ -f "$AUR_PKGBUILD" ]; then
+    # Replace pkgver=... at top-level
+    sed -i "s/^pkgver=.*/pkgver=$version/" "$AUR_PKGBUILD"
+    echo "Updated $AUR_PKGBUILD"
 fi
 
 # Update glade about dialog label if present
@@ -101,8 +120,17 @@ echo "Updated $CHANGELOG"
 
 # Insert release element as the first child under <releases>
 # Keep indentation consistent with project file (8 spaces for release lines)
-awk -v ver="$version" -v iso="$iso_date" '
-/^[[:space:]]*<releases>[[:space:]]*$/ { print; printf "        <release version=\"%s\" date=\"%s\" />\n", ver, iso; next }
+awk -v ver="$version" -v iso="$iso_date" -v url="$release_url" -v msg="$xml_message" '
+/^[[:space:]]*<releases>[[:space:]]*$/ {
+    print
+    printf "        <release version=\"%s\" date=\"%s\">\n", ver, iso
+    printf "            <url>%s</url>\n", url
+    printf "            <description>\n"
+    printf "                <p>%s</p>\n", msg
+    printf "            </description>\n"
+    printf "        </release>\n"
+    next
+}
 { print }
 ' "$METAFILE" > "$METAFILE.new" && mv "$METAFILE.new" "$METAFILE"
 echo "Updated $METAFILE"

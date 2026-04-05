@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-10-11 17:07+0000\n"
+"PO-Revision-Date: 2026-04-02 02:09+0000\n"
 "Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/safe-eyes/translations/zh_Hans/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -589,7 +589,7 @@ msgid "Please install one of the command-line tools: %s"
 msgstr "请安装以下任一命令行工具：%s"
 
 msgid "Skipping/postponing disabled period (in seconds)"
-msgstr ""
+msgstr "跳过/推迟禁用时段（秒）"
 
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
