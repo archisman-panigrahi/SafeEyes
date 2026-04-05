@@ -90,7 +90,7 @@ pip3 install --user safeeyes
 ```
 For smartpause in Wayland, install the `python3-pywayland` package (in case the installer does not automatically install it as a dependency). For smart pause plugin in X11, you may have to install the latest xprintidle from: [alonid/xprintidle](https://copr.fedorainfracloud.org/coprs/alonid/xprintidle/).
 
-Alternatively, use the [Flatpak version]([https://github.com/slgobinath/safeeyes/edit/master/README.md#flatpak](https://github.com/slgobinath/safeeyes?tab=readme-ov-file#flatpak)), which comes preinstalls with depenendencies and features automatic updates.
+Alternatively, use the [Flatpak version](https://github.com/slgobinath/safeeyes?tab=readme-ov-file#flatpak), which comes preinstalls with depenendencies and features automatic updates.
 
 ### OpenSUSE Tumbleweed
 
