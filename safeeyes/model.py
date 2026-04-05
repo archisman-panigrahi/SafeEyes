@@ -21,6 +21,7 @@ plugins.
 """
 
 import logging
+import os
 import random
 from enum import Enum
 from dataclasses import dataclass
@@ -404,14 +405,17 @@ class TrayAction:
         self.action = action
         self.system_icon = system_icon
         self.__toolbar_buttons = []
+        self.__icon_paintable = None
         self.single_use = single_use
 
     def get_icon(self) -> Gtk.Image:
         if not self.system_icon:
-            image = utility.load_and_scale_image(self.__icon, 16, 16)
-            if image is not None:
-                image.show()
-                return image
+            if self.__icon_paintable is None:
+                self.__icon_paintable = utility.load_and_scale_paintable(
+                    self.__icon, 16, 16
+                )
+            if self.__icon_paintable is not None:
+                return Gtk.Image.new_from_paintable(self.__icon_paintable)
 
         image = Gtk.Image.new_from_icon_name(self.__icon)
         return image
@@ -433,10 +437,8 @@ class TrayAction:
         action: typing.Callable,
         single_use: bool = True,
     ) -> "TrayAction":
-        if icon_path is not None:
-            image = utility.load_and_scale_image(icon_path, 12, 12)
-            if image is not None:
-                return TrayAction(name, icon_path, action, False, single_use)
+        if icon_path is not None and os.path.isfile(icon_path):
+            return TrayAction(name, icon_path, action, False, single_use)
 
         return TrayAction(name, icon_id, action, True, single_use)
 

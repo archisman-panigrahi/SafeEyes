@@ -32,9 +32,11 @@ class IdleMonitorX11(IdleMonitorInterface):
     idle or not, keeping the CPU active a lot.
     """
 
-    active: bool = False
-    lock = threading.Lock()
-    idle_condition = threading.Condition()
+    def __init__(self) -> None:
+        self.active = False
+        self.lock = threading.RLock()
+        self.idle_condition = threading.Condition(self.lock)
+        self._generation = 0
 
     def _is_active(self) -> bool:
         """Thread safe function to see if this plugin is active or not."""
@@ -43,10 +45,12 @@ class IdleMonitorX11(IdleMonitorInterface):
             is_active = self.active
         return is_active
 
-    def _set_active(self, is_active: bool) -> None:
+    def _set_active(self, is_active: bool) -> int:
         """Thread safe function to change the state of the plugin."""
         with self.lock:
             self.active = is_active
+            self._generation += 1
+            return self._generation
 
     def init(self) -> None:
         pass
@@ -60,12 +64,13 @@ class IdleMonitorX11(IdleMonitorInterface):
         """Start a thread to continuously call xprintidle."""
         if not self._is_active():
             # If SmartPause is already started, do not start it again
-            self._set_active(True)
+            generation = self._set_active(True)
             utility.start_thread(
                 self._start_idle_monitor,
                 on_idle=on_idle,
                 on_resumed=on_resumed,
                 idle_time=idle_time,
+                generation=generation,
             )
 
     def is_monitor_running(self) -> bool:
@@ -76,6 +81,7 @@ class IdleMonitorX11(IdleMonitorInterface):
         on_idle: typing.Callable[[], None],
         on_resumed: typing.Callable[[], None],
         idle_time: float,
+        generation: int,
     ) -> None:
         """Continuously check the system idle time and pause/resume Safe Eyes based
         on it.
@@ -83,31 +89,35 @@ class IdleMonitorX11(IdleMonitorInterface):
         waiting_time = min(idle_time, 2)
         was_idle = False
 
-        while self._is_active():
-            # Wait for waiting_time seconds
-            self.idle_condition.acquire()
-            self.idle_condition.wait(waiting_time)
-            self.idle_condition.release()
+        while True:
+            with self.idle_condition:
+                if not self._should_continue(generation):
+                    break
+                self.idle_condition.wait(waiting_time)
+                if not self._should_continue(generation):
+                    break
 
-            if self._is_active():
-                # Get the system idle time
-                system_idle_time = (
-                    # Convert to seconds
-                    int(subprocess.check_output(["xprintidle"]).decode("utf-8")) / 1000
-                )
-                if system_idle_time >= idle_time and not was_idle:
-                    was_idle = True
-                    utility.execute_main_thread(on_idle)
-                elif system_idle_time < idle_time and was_idle:
-                    was_idle = False
-                    utility.execute_main_thread(on_resumed)
+            # Get the system idle time
+            system_idle_time = (
+                # Convert to seconds
+                int(subprocess.check_output(["xprintidle"]).decode("utf-8")) / 1000
+            )
+            if system_idle_time >= idle_time and not was_idle:
+                was_idle = True
+                utility.execute_main_thread(on_idle)
+            elif system_idle_time < idle_time and was_idle:
+                was_idle = False
+                utility.execute_main_thread(on_resumed)
 
     def stop_monitor(self) -> None:
         """Stop the thread from continuously calling xprintidle."""
         self._set_active(False)
-        self.idle_condition.acquire()
-        self.idle_condition.notify_all()
-        self.idle_condition.release()
+        with self.idle_condition:
+            self.idle_condition.notify_all()
 
     def stop(self) -> None:
         pass
+
+    def _should_continue(self, generation: int) -> bool:
+        with self.lock:
+            return self.active and generation == self._generation

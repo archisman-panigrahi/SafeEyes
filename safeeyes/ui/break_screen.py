@@ -67,6 +67,7 @@ class BreakScreen:
         self.windows = []
         self.show_skip_button = False
         self.show_postpone_button = False
+        self._image_paintables: dict[tuple[str, int, int], Gdk.Paintable] = {}
 
         if not self.context.is_wayland:
             import Xlib.display
@@ -146,6 +147,7 @@ class BreakScreen:
 
         # Destroy other windows if exists
         self.__destroy_all_screens()
+        self._image_paintables.clear()
 
     def __show_break_screen(
         self,
@@ -178,10 +180,11 @@ class BreakScreen:
         i = 0
 
         for monitor in monitors:
+            image_paintable = self.__load_break_image_paintable(image_path, monitor)
             window = BreakScreenWindow(
                 self.application,
                 message,
-                image_path,
+                image_paintable,
                 widget,
                 tray_actions,
                 lambda: self.close(),
@@ -231,6 +234,27 @@ class BreakScreen:
                     typing.cast(Gdk.Toplevel, surface).inhibit_system_shortcuts(None)
 
             i = i + 1
+
+    def __load_break_image_paintable(
+        self,
+        image_path: typing.Optional[str],
+        monitor: Gdk.Monitor,
+    ) -> typing.Optional[Gdk.Paintable]:
+        if image_path is None:
+            return None
+
+        geometry = monitor.get_geometry()
+        width = max(1, min(geometry.width // 3, 1024))
+        height = max(1, min(geometry.height // 3, 1024))
+        key = (image_path, width, height)
+
+        paintable = self._image_paintables.get(key)
+        if paintable is None:
+            paintable = utility.load_and_scale_paintable(image_path, width, height)
+            if paintable is not None:
+                self._image_paintables[key] = paintable
+
+        return paintable
 
     def __update_count_down(self, count: str, enable_shortcut: bool) -> None:
         """Update the countdown on all break screens."""
@@ -366,13 +390,11 @@ class BreakScreenWindow(Gtk.Window):
     box_buttons: Gtk.Box = Gtk.Template.Child()
     toolbar: Gtk.Box = Gtk.Template.Child()
 
-    button_widgets: list[Gtk.Button] = []
-
     def __init__(
         self,
         application: Gtk.Application,
         message: str,
-        image_path: typing.Optional[str],
+        image_paintable: typing.Optional[Gdk.Paintable],
         widget: str,
         tray_actions: list[TrayAction],
         on_close: typing.Callable[[], None],
@@ -385,6 +407,8 @@ class BreakScreenWindow(Gtk.Window):
         super().__init__(application=application)
 
         self.on_close = on_close
+        self.button_widgets: list[Gtk.Button] = []
+        self._tray_actions = tray_actions
 
         for tray_action in tray_actions:
             # TODO: apparently, this would be better served with an icon theme
@@ -424,8 +448,8 @@ class BreakScreenWindow(Gtk.Window):
             self.button_widgets.append(btn_skip)
 
         # Set values
-        if image_path:
-            self.img_break.set_from_file(image_path)
+        if image_paintable is not None:
+            self.img_break.set_from_paintable(image_paintable)
         self.lbl_message.set_label(message)
         self.lbl_widget.set_markup(widget)
 
@@ -449,4 +473,7 @@ class BreakScreenWindow(Gtk.Window):
     def on_window_delete(self, *args) -> None:
         """Window close event handler."""
         logging.info("Closing the break screen")
+        for tray_action in self._tray_actions:
+            tray_action.reset()
+        self.button_widgets.clear()
         self.on_close()

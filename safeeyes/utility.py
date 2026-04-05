@@ -663,6 +663,17 @@ def load_and_scale_image(
     return image
 
 
+def load_and_scale_paintable(
+    path: str, width: int, height: int
+) -> typing.Optional[Gdk.Paintable]:
+    if not os.path.isfile(path):
+        return None
+    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+        filename=path, width=width, height=height, preserve_aspect_ratio=True
+    )
+    return Gdk.Texture.new_for_pixbuf(pixbuf)
+
+
 def has_method(module, method_name, no_of_args=0):
     """Check whether the given function is defined in the module or not."""
     if hasattr(module, method_name):

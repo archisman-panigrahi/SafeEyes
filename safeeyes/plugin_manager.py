@@ -97,6 +97,7 @@ class PluginManager:
         self.__plugins = {}
         self.last_break = None
         self.horizontal_line = "─" * HORIZONTAL_LINE_LENGTH
+        self.running = False
 
     def init(self, context: Context, config: Config) -> None:
         """Initialize all the plugins with init(context, safe_eyes_config,
@@ -131,7 +132,7 @@ class PluginManager:
             plugin_id = plugin["id"]
             plugin_ids.add(plugin_id)
             if plugin_id in self.__plugins:
-                self.__plugins[plugin_id].reload_config(plugin)
+                self.__plugins[plugin_id].reload_config(plugin, self.running)
             else:
                 try:
                     loaded_plugin = LoadedPlugin(plugin)
@@ -149,7 +150,8 @@ class PluginManager:
 
         removed_plugins = set(self.__plugins.keys()).difference(plugin_ids)
         for plugin_id in removed_plugins:
-            self.__plugins[plugin_id].disable()
+            self.__plugins[plugin_id].disable(self.running, force_unload=True)
+            del self.__plugins[plugin_id]
 
         # Initialize the plugins
         for plugin in self.__plugins.values():
@@ -182,6 +184,7 @@ class PluginManager:
 
     def start(self) -> None:
         """Execute the on_start() function of plugins."""
+        self.running = True
         for plugin in self.__plugins.values():
             plugin.call_plugin_method("on_start")
 
@@ -189,11 +192,14 @@ class PluginManager:
         """Execute the on_stop() function of plugins."""
         for plugin in self.__plugins.values():
             plugin.call_plugin_method("on_stop")
+        self.running = False
 
     def exit(self) -> None:
         """Execute the on_exit() function of plugins."""
         for plugin in self.__plugins.values():
-            plugin.call_plugin_method("on_exit")
+            plugin.unload(call_on_exit=plugin.enabled)
+        self.__plugins.clear()
+        self.running = False
 
     def pre_break(self, break_obj) -> bool:
         """Execute the on_pre_break(break_obj) function of plugins."""
@@ -323,13 +329,12 @@ class LoadedPlugin:
 
             self._import_plugin()
 
-    def reload_config(self, plugin: dict) -> None:
-        if not plugin["enabled"]:
-            self.disable()
+    def reload_config(self, plugin: dict, running: bool = False) -> None:
+        if not plugin["enabled"] and not self.break_override_allowed:
+            self.disable(running, force_unload=True)
             return
 
-        if not self.enabled and plugin["enabled"]:
-            self.enabled = True
+        self.enabled = plugin["enabled"]
 
         # Update the config
         self.config = dict(plugin.get("settings", {}))
@@ -352,16 +357,24 @@ class LoadedPlugin:
                 # No longer errored, import the module now
                 self._import_plugin()
 
-    def disable(self) -> None:
-        if self.enabled:
-            self.enabled = False
+    def disable(self, stop_plugin: bool = False, force_unload: bool = False) -> None:
+        was_enabled = self.enabled
+        self.enabled = False
+
+        if not force_unload and self.break_override_allowed:
             if (
-                not self.errored
+                stop_plugin
+                and was_enabled
+                and not self.errored
                 and self.module is not None
-                and utility.has_method(self.module, "disable")
+                and utility.has_method(self.module, "on_stop")
             ):
-                self.module.disable()
-            logging.info("Successfully unloaded the plugin '%s'", self.id)
+                self.module.on_stop()
+            logging.info("Successfully disabled the plugin '%s'", self.id)
+            return
+
+        self.unload(stop_plugin=stop_plugin, was_enabled=was_enabled, call_disable=True)
+        logging.info("Successfully unloaded the plugin '%s'", self.id)
 
     def reload_errored(self) -> None:
         if not self.errored:
@@ -397,6 +410,37 @@ class LoadedPlugin:
 
         if utility.has_method(self.module, "enable"):
             self.module.enable()
+
+    def unload(
+        self,
+        stop_plugin: bool = False,
+        was_enabled: typing.Optional[bool] = None,
+        call_disable: bool = False,
+        call_on_exit: bool = False,
+    ) -> None:
+        if self.module is None:
+            return
+
+        if was_enabled is None:
+            was_enabled = self.enabled
+
+        module = self.module
+
+        if not self.errored:
+            if stop_plugin and was_enabled and utility.has_method(module, "on_stop"):
+                module.on_stop()
+            if call_on_exit and utility.has_method(module, "on_exit"):
+                module.on_exit()
+            if call_disable and utility.has_method(module, "disable"):
+                module.disable()
+
+        self.module = None
+        self._unload_imported_modules()
+
+    def _unload_imported_modules(self) -> None:
+        for module_name in (f"{self.id}.plugin", f"{self.id}.dependency_checker", self.id):
+            sys.modules.pop(module_name, None)
+        importlib.invalidate_caches()
 
     def _load_config_json(self, plugin_id: str) -> typing.Tuple[dict, str]:
         # Look for plugin.py
