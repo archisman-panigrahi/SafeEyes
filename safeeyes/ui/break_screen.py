@@ -406,7 +406,7 @@ class BreakScreenWindow(Gtk.Window):
         self._clock_display_time: typing.Optional[str] = None
         self.clock_face.set_draw_func(self.__draw_clock_face)
         self.box_clock.set_visible(show_clock)
-        self.lbl_widget.set_yalign(1 if show_clock else 0.25)
+        has_widget = widget.strip() != ""
 
         for tray_action in tray_actions:
             # TODO: apparently, this would be better served with an icon theme
@@ -447,7 +447,12 @@ class BreakScreenWindow(Gtk.Window):
 
         # Set values
         if image_path:
-            self.__set_break_image(image_path, monitor_width, monitor_height)
+            self.__set_break_image(
+                image_path,
+                monitor_width,
+                monitor_height,
+                reserve_clock_space=show_clock and has_widget,
+            )
         self.lbl_message.set_label(message)
         self.lbl_widget.set_markup(widget)
         self.__refresh_clock(force=True)
@@ -561,11 +566,18 @@ class BreakScreenWindow(Gtk.Window):
         tray_action.action()
 
     def __set_break_image(
-        self, image_path: str, monitor_width: int, monitor_height: int
+        self,
+        image_path: str,
+        monitor_width: int,
+        monitor_height: int,
+        reserve_clock_space: bool = False,
     ) -> None:
         """Load the break image and cap it relative to the current monitor size."""
         max_width = max(1, (monitor_width * 8) // 10 - 1)
         max_height = max(1, (monitor_height * 3) // 10 - 1)
+
+        if reserve_clock_space:
+            max_height = min(max_height, max(1, (monitor_height * 22) // 100 - 1))
 
         try:
             loaded = GdkPixbuf.Pixbuf.new_from_file(image_path)
