@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-20 17:09+0000\n"
+"PO-Revision-Date: 2026-04-10 13:12+0000\n"
 "Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/he/>\n"
@@ -79,7 +79,7 @@ msgstr "start Safe Eyes in debug mode"
 
 # Commandline arg description
 msgid "print the status of running Safe Eyes instance and exit"
-msgstr ""
+msgstr "הצגת מצב הריצה של העותק של „Safe Eyes” ויציאה"
 
 # Status message
 msgid "Safe Eyes is not running"
