@@ -596,6 +596,12 @@ msgstr "נא להתקין את אחד מכלי שורת הפקודה: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "print the status of running Safe Eyes instance and exit"

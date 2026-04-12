@@ -609,6 +609,12 @@ msgstr "Įsidiekite vieną iš komandų eilutės įrankių: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "išvesti paleisto Safe Eyes egzemplioriaus būseną ir išeiti"

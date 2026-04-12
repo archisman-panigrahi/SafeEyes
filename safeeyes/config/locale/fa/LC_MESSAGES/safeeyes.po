@@ -594,6 +594,12 @@ msgstr "نصب یکی از این ابزارهای خط فرمان: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "چاپ وضعیت نمونهٔ محافظ چشم در جال اجرا و خروج"

@@ -606,6 +606,12 @@ msgstr "Prego installa uno degli strumenti da riga di comando: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "stampa lo stato di esecuzione di Safe Eyes ed esci"
