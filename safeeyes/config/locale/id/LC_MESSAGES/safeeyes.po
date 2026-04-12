@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-31 05:45+0000\n"
-"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
+"PO-Revision-Date: 2026-04-13 02:05+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/id/>\n"
 "Language: id\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 # Short break
 msgid "Gently close your eyes"
-msgstr ""
+msgstr "Tutup mata Anda perlahan"
 
 # Short break
 msgid "Roll your eyes a few times to each side"
-msgstr "Mata anda perlu melihat sekitar untuk sejenak"
+msgstr "Gerakkan mata Anda beberapa kali ke setiap sisi"
 
 # Short break
 msgid "Rotate your eyes in clockwise direction"
@@ -31,43 +31,43 @@ msgstr "Putar mata Anda searah jarum jam"
 
 # Short break
 msgid "Rotate your eyes in counterclockwise direction"
-msgstr "Putar mata Anda ke arah berlawanan arah jarum jam"
+msgstr "Putar mata Anda berlawanan arah jarum jam"
 
 # Short break
 msgid "Blink your eyes"
-msgstr "Kedipkan mata anda"
+msgstr "Kedipkan mata Anda"
 
 # Short break
 msgid "Focus on a point in the far distance"
-msgstr "Fokus pada titik yang berada di kejauhan"
+msgstr "Fokus pada suatu titik di kejauhan"
 
 # Short break
 msgid "Have some water"
-msgstr "Minumlah sedikit air minenal"
+msgstr "Minum air putih"
 
 # Long break
 msgid "Walk for a while"
-msgstr "Berjalanlah sejenak, hindari duduk terlalu lama"
+msgstr "Berjalan sebentar"
 
 # Long break
 msgid "Lean back at your seat and relax"
-msgstr "Bersandarlah di tempat duduk anda dan istirahatlah sejenak"
+msgstr "Bersandarlah di kursi Anda dan bersantailah"
 
 # Commandline arg description
 msgid "show the about dialog"
-msgstr "Tampilkan dialog about"
+msgstr "tampilkan dialog tentang"
 
 # Commandline arg description
 msgid "disable the currently running Safe Eyes instance"
-msgstr "nonaktifkan instance Safe Eyes yang sedang berjalan"
+msgstr "nonaktifkan instans Safe Eyes yang sedang berjalan"
 
 # Commandline arg description
 msgid "enable the currently running Safe Eyes instance"
-msgstr "aktifkan instance Safe Eyes yang sedang berjalan"
+msgstr "aktifkan instans Safe Eyes yang sedang berjalan"
 
 # Commandline arg description
 msgid "quit the running Safe Eyes instance and exit"
-msgstr "keluar dari instance Safe Eyes yang sedang berjalan dan keluar"
+msgstr "keluar dari instans Safe Eyes yang berjalan dan tutup"
 
 # Commandline arg description
 msgid "show the settings dialog"
@@ -75,11 +75,11 @@ msgstr "tampilkan dialog pengaturan"
 
 # Commandline arg description
 msgid "start Safe Eyes in debug mode"
-msgstr "mulai amankan dalam mode debug"
+msgstr "jalankan Safe Eyes dalam mode debug"
 
 # Commandline arg description
 msgid "print the status of running Safe Eyes instance and exit"
-msgstr "cetak status menjalankan instance Safe Eyes dan keluar"
+msgstr "cetak status instans Safe Eyes yang berjalan lalu keluar"
 
 # Status message
 msgid "Safe Eyes is not running"
@@ -94,7 +94,9 @@ msgstr "Tutup"
 msgid ""
 "Safe Eyes protects your eyes from eye strain (asthenopia) by reminding you "
 "to take breaks while you're working long hours at the computer"
-msgstr "Deskripsi"
+msgstr ""
+"Safe Eyes melindungi mata Anda dari kelelahan mata (astenopia) dengan "
+"mengingatkan Anda untuk beristirahat saat bekerja lama di depan komputer"
 
 # About dialog
 msgid "License"
@@ -102,11 +104,11 @@ msgstr "Lisensi"
 
 # About dialog
 msgid "List of Contributors"
-msgstr ""
+msgstr "Daftar Kontributor"
 
 # About dialog
 msgid "Help us translate this app"
-msgstr ""
+msgstr "Bantu kami menerjemahkan aplikasi ini"
 
 # Break screen
 msgid "Skip"
@@ -114,11 +116,11 @@ msgstr "Lewati"
 
 # Break screen
 msgid "Postpone"
-msgstr "Menunda"
+msgstr "Tunda"
 
 # Settings dialog
 msgid "Break duration (in seconds)"
-msgstr "Istirahat durasi (dalam detik)"
+msgstr "Durasi istirahat (dalam detik)"
 
 # Settings dialog
 msgid "Interval between two breaks (in minutes)"
@@ -126,15 +128,15 @@ msgstr "Interval antara dua istirahat (dalam menit)"
 
 # Settings dialog
 msgid "Time to prepare for a break (in seconds)"
-msgstr "Saatnya bersiap untuk istirahat (dalam detik)"
+msgstr "Waktu persiapan sebelum istirahat (dalam detik)"
 
 # Settings dialog
 msgid "Postponement duration (in minutes)"
-msgstr "Menunda durasi (dalam beberapa menit)"
+msgstr "Durasi penundaan (dalam menit)"
 
 # Settings dialog
 msgid "Show breaks in random order"
-msgstr "Tampilkan jeda dalam urutan acak"
+msgstr "Tampilkan istirahat dalam urutan acak"
 
 # Settings dialog
 msgid "Strict break (No way to skip breaks)"
@@ -146,29 +148,29 @@ msgstr "Izinkan penundaan istirahat"
 
 # Settings dialog
 msgid "Persist the internal state"
-msgstr "Pertahankan kondisi internal"
+msgstr "Pertahankan status internal"
 
 # Settings dialog
 msgid "Long break interval must be a multiple of short break interval"
 msgstr ""
-"Interval istirahat panjang harus dua kali lebih panjang dari istirahat pendek"
+"Interval istirahat panjang harus merupakan kelipatan dari interval istirahat "
+"singkat"
 
 # Settings dialog
 msgid "Reset"
-msgstr "Atur ulang"
+msgstr "Atur Ulang"
 
 # Settings dialog
 msgid "Are you sure you want to reset all settings to default?"
-msgstr ""
-"Apakah Anda yakin ingin mengatur ulang semua pengaturan ke pengaturan awal?"
+msgstr "Apakah Anda yakin ingin mengatur ulang semua pengaturan ke default?"
 
 # Settings dialog
 msgid "Options"
-msgstr "Pilihan"
+msgstr "Opsi"
 
 # Settings dialog
 msgid "Short Breaks"
-msgstr "Istirahat Pendek"
+msgstr "Istirahat Singkat"
 
 # Settings dialog
 msgid "Long Breaks"
@@ -184,7 +186,7 @@ msgstr "Apakah Anda yakin ingin menghapus istirahat ini?"
 
 # Settings dialog
 msgid "You can't undo this action."
-msgstr "Anda tidak bisa mengembalikan ulang aksi ini."
+msgstr "Anda tidak dapat membatalkan tindakan ini."
 
 # Settings dialog
 msgid "Break"
@@ -204,7 +206,7 @@ msgstr "Tipe"
 
 # Settings dialog
 msgid "Short"
-msgstr "Pendek"
+msgstr "Singkat"
 
 # Settings dialog
 msgid "Long"
@@ -220,7 +222,7 @@ msgstr "Pilih"
 
 # Settings dialog
 msgid "Please select an image"
-msgstr "Silakan pilih sebuah gambar"
+msgstr "Silakan pilih gambar"
 
 # Settings dialog
 msgid "Duration"
@@ -232,7 +234,7 @@ msgstr "Waktu tunggu"
 
 # Settings dialog
 msgid "Override"
-msgstr "Kesampingkan"
+msgstr "Timpa"
 
 # Settings dialog
 msgid "Time (in seconds)"
@@ -253,17 +255,17 @@ msgstr "Pengaturan Plugin"
 # Settings dialog
 #, python-format
 msgid "Plugin does not support %s desktop environment"
-msgstr "Plugin tidak mendukung %s lingkungan desktop"
+msgstr "Plugin tidak mendukung lingkungan desktop %s"
 
 # Settings dialog
 #, python-format
 msgid "Please install the Python module '%s'"
-msgstr "Silakan lakukan pemasangan Python module '%s'"
+msgstr "Harap instal modul Python '%s'"
 
 # Settings dialog
 #, python-format
 msgid "Please install the command-line tool '%s'"
-msgstr "Silakan lakukan pemasangan alat command-line '%s'"
+msgstr "Harap instal alat baris perintah '%s'"
 
 # Settings dialog
 msgid "Invalid cron expression '%s'"
@@ -272,7 +274,8 @@ msgstr "Ekspresi cron tidak valid '%s'"
 # Settings dialog
 #, python-format
 msgid "Please add the resource %(resource)s to %(config_resource)s directory"
-msgstr "Silakan tambahkan sumber %(resource)s ke direktori %(config_resource)s"
+msgstr ""
+"Harap tambahkan sumber daya %(resource)s ke direktori %(config_resource)s"
 
 # Settings dialog
 msgid "New Break"
@@ -292,19 +295,19 @@ msgstr "Simpan"
 
 # plugin/audiblealert
 msgid "Audible Alert"
-msgstr "Peringatan Bersuara"
+msgstr "Peringatan Suara"
 
 # plugin/audiblealert
 msgid "Play audible alert before and after breaks"
-msgstr "Mainkan peringatan bersuara sebelum dan setelah istirahat"
+msgstr "Putar peringatan suara sebelum dan sesudah istirahat"
 
 # plugin/audiblealert
 msgid "Play audible alert before breaks"
-msgstr "Mainkan peringatan bersuara sebelum istirahat"
+msgstr "Putar peringatan suara sebelum istirahat"
 
 # plugin/audiblealert
 msgid "Play audible alert after breaks"
-msgstr "Mainkan peringatan bersuara setelah istirahat"
+msgstr "Putar peringatan suara setelah istirahat"
 
 # plugin/donotdisturb
 msgid "Do Not Disturb"
@@ -312,23 +315,23 @@ msgstr "Jangan Ganggu"
 
 # plugin/donotdisturb
 msgid "Skip break if the active window is in fullscreen mode"
-msgstr "Lewati istirahat jika jendela aktif dalam kondisi layar penuh"
+msgstr "Lewati istirahat jika jendela aktif dalam mode layar penuh"
 
 # plugin/donotdisturb
 msgid "Do not interrupt these windows anytime"
-msgstr "Jangan interupsi jendela-jendela ini kapanpun"
+msgstr "Jangan ganggu jendela-jendela ini kapan pun"
 
 # plugin/donotdisturb
 msgid "Interrupt these windows regardless of their state"
-msgstr "Interupsi jendela-jendela terlepas dari kondisinya"
+msgstr "Ganggu jendela-jendela ini terlepas dari statusnya"
 
 # plugin/donotdisturb
 msgid "Switch the interruptible windows to normal mode"
-msgstr "Pindahkan jendela-jendela yang bisa diinterupsi ke kondisi normal"
+msgstr "Alihkan jendela yang dapat diganggu ke mode normal"
 
 # plugin/donotdisturb
 msgid "Do not disturb while on battery"
-msgstr "Jangan ganggu selagi menggunakan baterai"
+msgstr "Jangan ganggu saat menggunakan baterai"
 
 # plugin/healthstats
 msgid "Health Statistics"
@@ -336,13 +339,11 @@ msgstr "Statistik Kesehatan"
 
 # plugin/healthstats
 msgid "Show statistics based on how you use Safe Eyes"
-msgstr ""
-"Tampilkan statistik kesehatan berdasarkan bagaimana Anda menggunakan Safe "
-"Eyes"
+msgstr "Tampilkan statistik berdasarkan cara Anda menggunakan Safe Eyes"
 
 # plugin/healthstats
 msgid "Statistics reset interval (cron expression)"
-msgstr "Interval reset statistik (ekspresi cron)"
+msgstr "Interval pengaturan ulang statistik (ekspresi cron)"
 
 # plugin/notification
 msgid "Notification"
@@ -350,17 +351,17 @@ msgstr "Notifikasi"
 
 # plugin/notification
 msgid "Show a system notification before breaks"
-msgstr "Tampilkan sebuah sistem notifikasi sebelum istirahat"
+msgstr "Tampilkan notifikasi sistem sebelum istirahat"
 
 # plugin/notification
 #, python-format
 msgid "Ready for a short break in %s seconds"
-msgstr "Bersiap untuk istirahat singkat dalam %s detik"
+msgstr "Siap untuk istirahat singkat dalam %s detik"
 
 # plugin/notification
 #, python-format
 msgid "Ready for a long break in %s seconds"
-msgstr "Bersiap untuk istirahat panjang dalam %s detik"
+msgstr "Siap untuk istirahat panjang dalam %s detik"
 
 # plugin/screensaver
 msgid "Screensaver"
@@ -369,14 +370,15 @@ msgstr "Screensaver"
 # plugin/screensaver
 msgid "Lock the screen after long breaks by starting screensaver/screen-lock"
 msgstr ""
+"Kunci layar setelah istirahat panjang dengan memulai screensaver/kunci layar"
 
 # plugin/screensaver
 msgid "Custom screensaver or screen-lock command"
-msgstr ""
+msgstr "Perintah screensaver atau kunci layar kustom"
 
 # plugin/screensaver
 msgid "Minimum seconds to skip without screensaver"
-msgstr "Minimal detik untuk melewati tanpa screensaver"
+msgstr "Minimum detik untuk melewati tanpa screensaver"
 
 # plugin/screensaver
 msgid "Lock screen"
@@ -384,41 +386,41 @@ msgstr "Kunci layar"
 
 # plugin/smartpause
 msgid "Smart Pause"
-msgstr "Jeda Pintar"
+msgstr "Jeda Cerdas"
 
 # plugin/smartpause
 msgid "Pause Safe Eyes if the system is idle"
-msgstr "Jeda Safe Eyes jika sistem menganggur"
+msgstr "Jeda Safe Eyes jika sistem tidak aktif"
 
 # plugin/smartpause
 msgid "Minimum idle time to pause Safe Eyes (in seconds)"
-msgstr "Minimal waktu menganggur untuk jeda Safe Eyes (dalam detik)"
+msgstr "Waktu tidak aktif minimum untuk menjeda Safe Eyes (dalam detik)"
 
 # plugin/smartpause
 msgid "Interpret idle time equivalent to upcoming break duration as a break"
 msgstr ""
-"Tafsirkan waktu menganggur sepadan untuk waktu istirahat selanjutnya sebagai "
-"sebuah istirahat"
+"Tafsirkan waktu tidak aktif yang setara dengan durasi istirahat mendatang "
+"sebagai istirahat"
 
 # plugin/smartpause
 msgid "Postpone the next break until the system becomes idle"
-msgstr "Tunda istirahat selanjutnya sampai sistem menjadi menganggur"
+msgstr "Tunda istirahat berikutnya hingga sistem menjadi tidak aktif"
 
 #: plugins/trayicon
 msgid "Tray Icon"
-msgstr "Penampan Ikon"
+msgstr "Ikon Tray"
 
 #: plugins/trayicon
 msgid "Show a tray icon in the notification area"
-msgstr "Tampilkan sebuah penampan ikon dalam bagian notifikasi"
+msgstr "Tampilkan ikon tray di area notifikasi"
 
 #: plugins/trayicon
 msgid "Show next break time in tray icon"
-msgstr "Tampilkan waktu istirahat selanjutnya dalam penampan ikon"
+msgstr "Tampilkan waktu istirahat berikutnya di ikon tray"
 
 #: plugins/trayicon
 msgid "Allow disabling Safe Eyes"
-msgstr "Izinkan mematikan Safe Eyes"
+msgstr "Izinkan penonaktifan Safe Eyes"
 
 #: plugins/trayicon
 msgid "About"
@@ -426,47 +428,47 @@ msgstr "Tentang"
 
 #: plugins/trayicon
 msgid "Disable Safe Eyes"
-msgstr "Matikan Safe Eyes"
+msgstr "Nonaktifkan Safe Eyes"
 
 #: plugins/trayicon
 #, python-format
 msgid "Disabled until %s"
-msgstr "Mati dalam %s"
+msgstr "Dinonaktifkan hingga %s"
 
 #: plugins/trayicon
 msgid "Disabled until restart"
-msgstr "Mati setelah restart"
+msgstr "Dinonaktifkan hingga restart"
 
 #: plugins/trayicon
 msgid "Enable Safe Eyes"
-msgstr "Hidupkan Safe Eyes"
+msgstr "Aktifkan Safe Eyes"
 
 #: plugins/trayicon
 #, python-format
 msgid "For %(num)d Hour"
 msgid_plural "For %(num)d Hours"
-msgstr[0] "Selama %(num)d jam"
+msgstr[0] "Selama %(num)d Jam"
 
 #: plugins/trayicon
 #, python-format
 msgid "For %(num)d Minute"
 msgid_plural "For %(num)d Minutes"
-msgstr[0] "Selama %(num)d menit"
+msgstr[0] "Selama %(num)d Menit"
 
 #: plugins/trayicon
 #, python-format
 msgid "For %(num)d Second"
 msgid_plural "For %(num)d Seconds"
-msgstr[0] "Selama %(num)d detik"
+msgstr[0] "Selama %(num)d Detik"
 
 #: plugins/trayicon
 #, python-format
 msgid "Next break at %s"
-msgstr "Istirahat selanjutnya pada %s"
+msgstr "Istirahat berikutnya pukul %s"
 
 #: plugins/trayicon
 msgid "No Breaks Available"
-msgstr "Tidak istirahat yang tersedia"
+msgstr "Tidak Ada Istirahat Tersedia"
 
 #: plugins/trayicon
 msgid "Settings"
@@ -474,23 +476,23 @@ msgstr "Pengaturan"
 
 #: plugins/trayicon
 msgid "Take a break now"
-msgstr "Ambil istirahat sekarang"
+msgstr "Istirahat sekarang"
 
 #: plugins/trayicon
 msgid "Any break"
-msgstr ""
+msgstr "Semua istirahat"
 
 #: plugins/trayicon
 msgid "Short break"
-msgstr ""
+msgstr "Istirahat singkat"
 
 #: plugins/trayicon
 msgid "Long break"
-msgstr ""
+msgstr "Istirahat panjang"
 
 #: plugins/trayicon
 msgid "Until restart"
-msgstr "Sampai restart"
+msgstr "Hingga restart"
 
 #: plugins/trayicon
 msgid "Quit"
@@ -502,7 +504,7 @@ msgstr "Kontrol Media"
 
 # plugin/mediacontrol
 msgid "Pause media players from the break screen"
-msgstr "Jeda pemutar media dari pengistirahatan layar"
+msgstr "Jeda pemutar media dari layar istirahat"
 
 # plugin/mediacontrol
 msgid "Pause media"
@@ -510,88 +512,96 @@ msgstr "Jeda media"
 
 # plugin/limitconsecutiveskipping
 msgid "Limit Consecutive Skipping"
-msgstr ""
+msgstr "Batasi Lewati Berturut-turut"
 
 # plugin/limitconsecutiveskipping
 msgid "How many skips or postpones are allowed in a row"
-msgstr ""
+msgstr "Berapa banyak lewati atau tunda yang diizinkan secara berturut-turut"
 
 # plugin/limitconsecutiveskipping
 msgid "Limit how many breaks can be skipped or postponed in a row"
 msgstr ""
+"Batasi berapa banyak istirahat yang dapat dilewati atau ditunda secara "
+"berturut-turut"
 
 # plugin/limitconsecutiveskipping
 #, python-format
 msgid "Skipped or postponed %(num)d/%(allowed)d breaks in a row"
-msgstr ""
+msgstr "Dilewati atau ditunda %(num)d/%(allowed)d istirahat berturut-turut"
 
 # safeeyes/platform/io.github.slgobinath.SafeEyes.desktop
 msgid "RSI Prevention"
-msgstr ""
+msgstr "Pencegahan RSI"
 
 msgid ""
 "Please install service providing tray icons for your desktop environment."
 msgstr ""
+"Harap instal layanan yang menyediakan ikon tray untuk lingkungan desktop "
+"Anda."
 
 #, python-format
 msgid "Next long break at %s"
-msgstr ""
+msgstr "Istirahat panjang berikutnya pukul %s"
 
 #, python-format
 msgid "Next breaks at %(short)s/%(long)s"
-msgstr ""
+msgstr "Istirahat berikutnya pukul %(short)s/%(long)s"
 
 #, python-format
 msgid "The required plugin '%s' is missing dependencies!"
-msgstr ""
+msgstr "Plugin yang dibutuhkan '%s' memiliki dependensi yang hilang!"
 
 msgid ""
 "Please install the dependencies or disable the plugin. To hide this message, "
 "you can also deactivate the plugin in the settings."
 msgstr ""
+"Harap instal dependensi atau nonaktifkan plugin. Untuk menyembunyikan pesan "
+"ini, Anda juga dapat menonaktifkan plugin di pengaturan."
 
 msgid "Click here for more information"
-msgstr ""
+msgstr "Klik di sini untuk informasi lebih lanjut"
 
 msgid "Disable plugin temporarily"
-msgstr ""
+msgstr "Nonaktifkan plugin sementara"
 
 msgid "Disable permanently"
-msgstr ""
+msgstr "Nonaktifkan secara permanen"
 
 msgid "License:"
-msgstr ""
+msgstr "Lisensi:"
 
 #, python-format
 msgid ""
 "Old stylesheet found at '%(old)s', ignoring. For custom styles, create a new "
 "stylesheet in '%(new)s' instead."
 msgstr ""
+"Lembar gaya lama ditemukan di '%(old)s', diabaikan. Untuk gaya kustom, buat "
+"lembar gaya baru di '%(new)s'."
 
 msgid "Customizing the postpone and skip shortcuts does not work on Wayland."
-msgstr ""
+msgstr "Menyesuaikan pintasan tunda dan lewati tidak berfungsi di Wayland."
 
 msgid "Safe Eyes - Error"
-msgstr ""
+msgstr "Safe Eyes - Kesalahan"
 
 msgid "A required plugin is missing dependencies!"
-msgstr ""
+msgstr "Plugin yang dibutuhkan memiliki dependensi yang hilang!"
 
 msgid "Postponement duration in"
-msgstr ""
+msgstr "Durasi penundaan dalam"
 
 msgid "minutes"
-msgstr ""
+msgstr "menit"
 
 msgid "seconds"
-msgstr ""
+msgstr "detik"
 
 #, python-format
 msgid "Please install one of the command-line tools: %s"
-msgstr ""
+msgstr "Harap instal salah satu alat baris perintah: %s"
 
 msgid "Skipping/postponing disabled period (in seconds)"
-msgstr ""
+msgstr "Periode penonaktifan lewati/tunda (dalam detik)"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
