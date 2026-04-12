@@ -591,6 +591,12 @@ msgstr "請安裝其中一項指令工具： %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "跳過/延遲 已經停用的時段 (秒計)"
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
 #~ msgstr "鍵盤快速鍵停用期間(秒)"

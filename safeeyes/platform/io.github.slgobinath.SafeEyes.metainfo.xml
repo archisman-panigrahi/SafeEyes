@@ -55,6 +55,12 @@
     <url type="vcs-browser">https://github.com/slgobinath/safeeyes</url>
 
     <releases>
+        <release version="3.4.0" date="2026-04-12">
+            <url>https://github.com/slgobinath/safeeyes/releases/tag/v3.4.0</url>
+            <description>
+                <p>command line arguments for short and long break, middle click tray icon to activate break</p>
+            </description>
+        </release>
         <release version="3.3.3" date="2026-04-05">
             <url>https://github.com/slgobinath/safeeyes/releases/tag/v3.3.3</url>
             <description>

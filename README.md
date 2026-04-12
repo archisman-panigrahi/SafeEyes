@@ -31,6 +31,8 @@ Application Options:
   -a, --about                show the about dialog
   -s, --settings             show the settings dialog
   -t, --take-break           take a break now
+  -b, --short-break          take a short break now
+  -l, --long-break           take a long break now
   -d, --disable              disable the currently running Safe Eyes instance
   -e, --enable               enable the currently running Safe Eyes instance
   -q, --quit                 quit the running Safe Eyes instance and exit
@@ -90,7 +92,7 @@ pip3 install --user safeeyes
 ```
 For smartpause in Wayland, install the `python3-pywayland` package (in case the installer does not automatically install it as a dependency). For smart pause plugin in X11, you may have to install the latest xprintidle from: [alonid/xprintidle](https://copr.fedorainfracloud.org/coprs/alonid/xprintidle/).
 
-Alternatively, use the [Flatpak version](https://github.com/slgobinath/safeeyes/edit/master/README.md#flatpak), which comes preinstalls with depenendencies and features automatic updates.
+Alternatively, use the [Flatpak version](https://github.com/slgobinath/safeeyes?tab=readme-ov-file#flatpak), which comes preinstalls with depenendencies and features automatic updates.
 
 ### OpenSUSE Tumbleweed
 
@@ -194,6 +196,7 @@ This method has the same caveats about icons/window icons as running from source
 - Smart pause if system is idle
 - Multi-screen support
 - Customizable user interface
+- Middle-click the tray icon to start a short break
 - Command-line arguments to control the running instance
 - Customizable using plug-ins
 

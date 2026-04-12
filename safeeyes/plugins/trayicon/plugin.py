@@ -55,6 +55,14 @@ SNI_NODE_INFO = Gio.DBusNodeInfo.new_for_xml(
         <method name="ProvideXdgActivationToken">
             <arg name="token" type="s" direction="in"/>
         </method>
+        <method name="Activate">
+            <arg name="x" type="i" direction="in"/>
+            <arg name="y" type="i" direction="in"/>
+        </method>
+        <method name="SecondaryActivate">
+            <arg name="x" type="i" direction="in"/>
+            <arg name="y" type="i" direction="in"/>
+        </method>
 
         <property name="XAyatanaLabel" type="s" access="read"/>
         <signal name="XAyatanaNewLabel">
@@ -380,7 +388,12 @@ class StatusNotifierItemService(DBusService):
     last_activation_token: typing.Optional[str] = None
     watcher_watcher_id: typing.Optional[int] = None
 
-    def __init__(self, session_bus, menu_items):
+    def __init__(
+        self,
+        session_bus,
+        menu_items,
+        on_secondary_activate: typing.Optional[typing.Callable[[], None]] = None,
+    ):
         super().__init__(
             interface_info=SNI_NODE_INFO,
             object_path=self.DBUS_SERVICE_PATH,
@@ -388,6 +401,7 @@ class StatusNotifierItemService(DBusService):
         )
 
         self.bus = session_bus
+        self._on_secondary_activate = on_secondary_activate
 
         self._menu = DBusMenuService(session_bus, menu_items)
         self.Menu = self._menu.DBUS_SERVICE_PATH
@@ -455,6 +469,14 @@ class StatusNotifierItemService(DBusService):
     def ProvideXdgActivationToken(self, token: str) -> None:
         self.last_activation_token = token
 
+    def Activate(self, x: int, y: int) -> None:
+        # The tray item is menu-driven, so primary activation is handled by the host.
+        return None
+
+    def SecondaryActivate(self, x: int, y: int) -> None:
+        if self._on_secondary_activate is not None:
+            self._on_secondary_activate()
+
 
 class TrayIcon:
     """Create and show the tray icon along with the tray menu."""
@@ -495,7 +517,9 @@ class TrayIcon:
         )
 
         self.sni_service = StatusNotifierItemService(
-            self._session_bus, menu_items=self.get_items()
+            self._session_bus,
+            menu_items=self.get_items(),
+            on_secondary_activate=self.on_secondary_activate,
         )
         self.sni_service.register()
 
@@ -747,6 +771,16 @@ class TrayIcon:
     def on_manual_break_clicked(self, break_type):
         """Trigger a break manually."""
         self.take_break(break_type)
+
+    def on_secondary_activate(self) -> None:
+        """Handle a middle-click on the tray icon."""
+        if not self.active or self.menu_locked:
+            return
+
+        if not self.has_breaks(BreakType.SHORT_BREAK):
+            return
+
+        self.on_manual_break_clicked(BreakType.SHORT_BREAK)
 
     def on_enable_clicked(self):
         """Handle 'Enable Safe Eyes' menu action.

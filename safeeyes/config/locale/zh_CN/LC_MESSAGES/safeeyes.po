@@ -591,6 +591,12 @@ msgstr "请安装以下任一命令行工具：%s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "跳过/推迟禁用时段（秒）"
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
 #~ msgstr "禁用键盘快捷键的时长（秒）"
