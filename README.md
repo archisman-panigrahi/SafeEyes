@@ -31,6 +31,8 @@ Application Options:
   -a, --about                show the about dialog
   -s, --settings             show the settings dialog
   -t, --take-break           take a break now
+  -b, --short-break          take a short break now
+  -l, --long-break           take a long break now
   -d, --disable              disable the currently running Safe Eyes instance
   -e, --enable               enable the currently running Safe Eyes instance
   -q, --quit                 quit the running Safe Eyes instance and exit
