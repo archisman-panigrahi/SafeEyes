@@ -1,3 +1,9 @@
+safeeyes (3.4.0) noble; urgency=medium
+
+  * command line arguments for short and long break, middle click tray icon to activate break
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Sun, 12 Apr 2026 23:07:12 +0000
+
 safeeyes (3.3.3) noble; urgency=medium
 
   * Bigger image in break screens and translation updates
