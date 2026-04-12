@@ -577,3 +577,9 @@ msgstr ""
 
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
+
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""

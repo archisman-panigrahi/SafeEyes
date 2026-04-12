@@ -602,6 +602,12 @@ msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 "Peatamise (vahelejätmiseks või edasilükkamiseks) ajavahemik (sekundites)"
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "väljasta hetkel töötava Safe Eyes instantsi staatus ja välju"

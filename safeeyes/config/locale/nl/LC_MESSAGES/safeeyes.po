@@ -608,6 +608,12 @@ msgstr "Installeer een van de opdrachtregelhulpmiddelen: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "Uitschakelduur van overslaan/uitstellen (in seconden)"
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "de status van de draaiende Safe Eyes-instantie printen en afsluiten"

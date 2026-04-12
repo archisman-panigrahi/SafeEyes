@@ -612,6 +612,12 @@ msgstr "Bitte eines dieser Kommandozeilen-Tools installieren: %s"
 msgid "Skipping/postponing disabled period (in seconds)"
 msgstr ""
 
+msgid "take a short break now"
+msgstr ""
+
+msgid "take a long break now"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "Status der laufenden Safe Eyes-Instanz ausgeben und beenden"
