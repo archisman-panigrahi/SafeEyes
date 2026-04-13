@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-02 02:09+0000\n"
+"PO-Revision-Date: 2026-04-14 02:09+0000\n"
 "Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/safe-eyes/translations/zh_Hans/>\n"
@@ -592,10 +592,10 @@ msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "跳过/推迟禁用时段（秒）"
 
 msgid "take a short break now"
-msgstr ""
+msgstr "现在稍作休息"
 
 msgid "take a long break now"
-msgstr ""
+msgstr "现在进行长时间的休息"
 
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
