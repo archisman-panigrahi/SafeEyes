@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-08 10:09+0000\n"
+"PO-Revision-Date: 2026-04-14 02:09+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/et/>\n"
@@ -603,10 +603,10 @@ msgstr ""
 "Peatamise (vahelejätmiseks või edasilükkamiseks) ajavahemik (sekundites)"
 
 msgid "take a short break now"
-msgstr ""
+msgstr "tee nüüd üks lühike paus"
 
 msgid "take a long break now"
-msgstr ""
+msgstr "tee nüüd üks pikk paus"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
