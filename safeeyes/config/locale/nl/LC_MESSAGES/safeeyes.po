@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-02 02:09+0000\n"
+"PO-Revision-Date: 2026-04-16 09:09+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/nl/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -609,10 +609,10 @@ msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "Uitschakelduur van overslaan/uitstellen (in seconden)"
 
 msgid "take a short break now"
-msgstr ""
+msgstr "las nu een korte pauze in"
 
 msgid "take a long break now"
-msgstr ""
+msgstr "las nu een lange pauze in"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
