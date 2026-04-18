@@ -71,11 +71,13 @@ class SettingsDialog(Gtk.ApplicationWindow):
     spin_long_break_interval: Gtk.SpinButton = Gtk.Template.Child()
     spin_time_to_prepare: Gtk.SpinButton = Gtk.Template.Child()
     spin_postpone_duration: Gtk.SpinButton = Gtk.Template.Child()
+    spin_fade_in_break_screen_duration: Gtk.SpinButton = Gtk.Template.Child()
     dropdown_postpone_unit: Gtk.DropDown = Gtk.Template.Child()
     spin_disable_keyboard_shortcut: Gtk.SpinButton = Gtk.Template.Child()
     switch_strict_break: Gtk.Switch = Gtk.Template.Child()
     switch_random_order: Gtk.Switch = Gtk.Template.Child()
     switch_postpone: Gtk.Switch = Gtk.Template.Child()
+    switch_fade_in_break_screen: Gtk.Switch = Gtk.Template.Child()
     switch_persist: Gtk.Switch = Gtk.Template.Child()
     info_bar_long_break: Gtk.InfoBar = Gtk.Template.Child()
 
@@ -123,6 +125,9 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.spin_long_break_interval.set_value(config.get("long_break_interval"))
         self.spin_time_to_prepare.set_value(config.get("pre_break_warning_time"))
         self.spin_postpone_duration.set_value(config.get("postpone_duration"))
+        self.spin_fade_in_break_screen_duration.set_value(
+            config.get("fade_in_break_screen_duration", 1500)
+        )
         # Set the active item in the dropdown based on the postpone unit
         if config.get("postpone_unit") == "seconds":
             self.dropdown_postpone_unit.set_selected(1)
@@ -134,6 +139,9 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.switch_strict_break.set_active(config.get("strict_break"))
         self.switch_random_order.set_active(config.get("random_order"))
         self.switch_postpone.set_active(config.get("allow_postpone"))
+        self.switch_fade_in_break_screen.set_active(
+            config.get("fade_in_break_screen", True)
+        )
         self.switch_persist.set_active(config.get("persist_state"))
         self.infobar_long_break_shown = False
 
@@ -342,6 +350,10 @@ class SettingsDialog(Gtk.ApplicationWindow):
             "postpone_duration", self.spin_postpone_duration.get_value_as_int()
         )
         self.config.set(
+            "fade_in_break_screen_duration",
+            self.spin_fade_in_break_screen_duration.get_value_as_int(),
+        )
+        self.config.set(
             "postpone_unit",
             # the model is a GtkStringList - so get_selected_item will return a
             # StringObject
@@ -356,6 +368,9 @@ class SettingsDialog(Gtk.ApplicationWindow):
         self.config.set("strict_break", self.switch_strict_break.get_active())
         self.config.set("random_order", self.switch_random_order.get_active())
         self.config.set("allow_postpone", self.switch_postpone.get_active())
+        self.config.set(
+            "fade_in_break_screen", self.switch_fade_in_break_screen.get_active()
+        )
         self.config.set("persist_state", self.switch_persist.get_active())
         for plugin in self.config.get("plugins"):
             if plugin["id"] in self.plugin_items:
