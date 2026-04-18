@@ -243,6 +243,8 @@ To manually change the version number, update the following places (Open the pro
 
 First check if translations for your language are already available on [Weblate](https://hosted.weblate.org/engage/safe-eyes/), which is the cloud based translation platform we use. 
 
+<a href="https://hosted.weblate.org/engage/safe-eyes/"><img src="https://hosted.weblate.org/widget/safe-eyes/horizontal-auto.svg" alt="Translation status"></a>
+
 - If the language is already there, feel free to add new translations or improve the existing ones.
 - If it is not there, please [open an issue](https://github.com/slgobinath/safeeyes/issues) in Github so that we can add your language to Weblate.
 
