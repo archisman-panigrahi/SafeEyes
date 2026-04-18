@@ -93,16 +93,6 @@ if [ -f "$AUR_PKGBUILD" ]; then
     echo "Updated $AUR_PKGBUILD"
 fi
 
-# Update glade about dialog label if present
-GLADE_ABOUT="safeeyes/glade/about_dialog.glade"
-if [ -f "$GLADE_ABOUT" ]; then
-    # replace 'Safe Eyes x.y.z' inside <property name="label">...<
-    sed -i "s/\(<property name=\"label\">Safe Eyes \).*\(<\/property>\)/\1$version\2/" "$GLADE_ABOUT" || true
-    echo "Updated $GLADE_ABOUT"
-fi
-
-
-
 # Prepend changelog entry (Debian format)
 tmpfile=$(mktemp)
 cat > "$tmpfile" <<EOF
