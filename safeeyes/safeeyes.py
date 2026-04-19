@@ -28,11 +28,6 @@ from pathlib import Path
 import re
 import typing
 
-try:
-    import tomllib
-except ModuleNotFoundError:
-    tomllib = None
-
 import gi
 from safeeyes import context, utility
 from safeeyes.ui.about_dialog import AboutDialog
@@ -54,18 +49,23 @@ def _safeeyes_version() -> str:
 
     # Running from a source checkout: use the local project metadata.
     if pyproject_path.is_file():
-        if tomllib is not None:
-            try:
-                pyproject = tomllib.loads(pyproject_path.read_text(encoding="utf-8"))
-                version = pyproject["project"]["version"]
-                return f"{version}+development"
-            except (OSError, ValueError, KeyError, TypeError):
-                # Fall back to regex parsing for compatibility and resilience.
-                pass
+        pyproject_text = pyproject_path.read_text(encoding="utf-8")
+
+        try:
+            import tomllib
+
+            pyproject = tomllib.loads(pyproject_text)
+            version = pyproject["project"]["version"]
+            return f"{version}+development"
+        except ModuleNotFoundError:
+            pass
+        except (ValueError, KeyError, TypeError):
+            # Fall back to regex parsing for compatibility and resilience.
+            pass
 
         match = re.search(
             r'(?ms)^\[project\].*?^version\s*=\s*"([^"]+)"',
-            pyproject_path.read_text(encoding="utf-8"),
+            pyproject_text,
         )
         if match is None:
             raise RuntimeError("Could not parse project version from pyproject.toml")
