@@ -50,12 +50,10 @@ from gi.repository import Gtk, Gio, GLib
 
 
 def _safeeyes_version() -> str:
-    try:
-        return metadata.version("safeeyes")
-    except metadata.PackageNotFoundError:
-        # Running from a source checkout without installation metadata.
-        pyproject_path = Path(__file__).resolve().parent.parent / "pyproject.toml"
+    pyproject_path = Path(__file__).resolve().parent.parent / "pyproject.toml"
 
+    # Running from a source checkout: use the local project metadata.
+    if pyproject_path.is_file():
         if tomllib is not None:
             try:
                 pyproject = tomllib.loads(pyproject_path.read_text(encoding="utf-8"))
@@ -72,9 +70,13 @@ def _safeeyes_version() -> str:
         if match is None:
             raise RuntimeError("Could not parse project version from pyproject.toml")
 
-        version = match.group(1)
+        return f"{match.group(1)}+development"
 
-        return f"{version}+development"
+    # Installed package: use distribution metadata.
+    try:
+        return metadata.version("safeeyes")
+    except metadata.PackageNotFoundError as error:
+        raise RuntimeError("Could not determine Safe Eyes version") from error
 
 
 SAFE_EYES_VERSION = _safeeyes_version()
