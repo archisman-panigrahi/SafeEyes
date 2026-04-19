@@ -92,7 +92,7 @@ pip3 install --user safeeyes
 ```
 For smartpause in Wayland, install the `python3-pywayland` package (in case the installer does not automatically install it as a dependency). For smart pause plugin in X11, you may have to install the latest xprintidle from: [alonid/xprintidle](https://copr.fedorainfracloud.org/coprs/alonid/xprintidle/).
 
-Alternatively, use the [Flatpak version](https://github.com/slgobinath/safeeyes?tab=readme-ov-file#flatpak), which comes preinstalls with depenendencies and features automatic updates.
+Alternatively, use the [Flatpak version](https://github.com/slgobinath/safeeyes?tab=readme-ov-file#flatpak), which comes preinstalls with dependencies and features automatic updates.
 
 ### OpenSUSE Tumbleweed
 
@@ -242,6 +242,8 @@ To manually change the version number, update the following places (Open the pro
 ## How you can help improving translation of Safe Eyes
 
 First check if translations for your language are already available on [Weblate](https://hosted.weblate.org/engage/safe-eyes/), which is the cloud based translation platform we use. 
+
+<a href="https://hosted.weblate.org/engage/safe-eyes/"><img src="https://hosted.weblate.org/widget/safe-eyes/horizontal-auto.svg" alt="Translation status"></a>
 
 - If the language is already there, feel free to add new translations or improve the existing ones.
 - If it is not there, please [open an issue](https://github.com/slgobinath/safeeyes/issues) in Github so that we can add your language to Weblate.

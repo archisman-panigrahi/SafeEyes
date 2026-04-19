@@ -1,3 +1,9 @@
+safeeyes (3.4.1) noble; urgency=medium
+
+  * New breaks and new translations
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Sun, 19 Apr 2026 14:52:14 +0000
+
 safeeyes (3.4.0) noble; urgency=medium
 
   * command line arguments for short and long break, middle click tray icon to activate break

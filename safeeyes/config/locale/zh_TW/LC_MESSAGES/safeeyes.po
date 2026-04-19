@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-02 02:09+0000\n"
+"PO-Revision-Date: 2026-04-14 02:09+0000\n"
 "Last-Translator: 麋麓 BigELK176 <BigELK176@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/safe-eyes/translations/zh_Hant/>\n"
@@ -52,6 +52,46 @@ msgstr "起來走動一會兒"
 # Long break
 msgid "Lean back at your seat and relax"
 msgstr "向後靠在椅背上放鬆一下"
+
+# Short break
+msgid "Take five slow, deep breaths"
+msgstr ""
+
+# Short break
+msgid "Relax your shoulders and drop them away from your ears"
+msgstr ""
+
+# Short break
+msgid "Unclench your jaw and relax your face"
+msgstr ""
+
+# Short break
+msgid "Stretch your neck gently from side to side"
+msgstr ""
+
+# Short break
+msgid "Check your posture and sit back comfortably"
+msgstr ""
+
+# Short break
+msgid "Stretch your wrists and fingers"
+msgstr ""
+
+# Long break
+msgid "Stand up and stretch your back and legs"
+msgstr ""
+
+# Long break
+msgid "Walk around and refill your water"
+msgstr ""
+
+# Long break
+msgid "Step away from the screen and do a short mobility stretch"
+msgstr ""
+
+# Long break
+msgid "Rest your eyes and focus on distant objects"
+msgstr ""
 
 # Commandline arg description
 msgid "show the about dialog"
@@ -592,10 +632,10 @@ msgid "Skipping/postponing disabled period (in seconds)"
 msgstr "跳過/延遲 已經停用的時段 (秒計)"
 
 msgid "take a short break now"
-msgstr ""
+msgstr "立即作個短暫休息"
 
 msgid "take a long break now"
-msgstr ""
+msgstr "立即作個長時間休息"
 
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
