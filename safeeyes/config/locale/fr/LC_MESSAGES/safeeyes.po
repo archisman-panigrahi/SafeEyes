@@ -6,8 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-31 05:45+0000\n"
-"Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
+"PO-Revision-Date: 2026-04-20 21:43+0000\n"
+"Last-Translator: \"AO yahoe.001\" "
+"<ao_yahoe.001@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/fr/>\n"
 "Language: fr\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -55,43 +56,43 @@ msgstr "Adossez-vous à votre siège et détendez-vous"
 
 # Short break
 msgid "Take five slow, deep breaths"
-msgstr ""
+msgstr "Respirez lentement et profondément cinq fois"
 
 # Short break
 msgid "Relax your shoulders and drop them away from your ears"
-msgstr ""
+msgstr "Détendez vos épaules et éloignez-les de vos oreilles"
 
 # Short break
 msgid "Unclench your jaw and relax your face"
-msgstr ""
+msgstr "Desserrez votre mâchoire et détendez votre visage"
 
 # Short break
 msgid "Stretch your neck gently from side to side"
-msgstr ""
+msgstr "Étirez doucement votre cou d’un côté à l’autre"
 
 # Short break
 msgid "Check your posture and sit back comfortably"
-msgstr ""
+msgstr "Pensez à votre posture et asseyez-vous confortablement"
 
 # Short break
 msgid "Stretch your wrists and fingers"
-msgstr ""
+msgstr "Étirez vos poignets et vos doigts"
 
 # Long break
 msgid "Stand up and stretch your back and legs"
-msgstr ""
+msgstr "Levez-vous et étirez votre dos et vos jambes"
 
 # Long break
 msgid "Walk around and refill your water"
-msgstr ""
+msgstr "Marchez un et remplissez votre verre d’eau"
 
 # Long break
 msgid "Step away from the screen and do a short mobility stretch"
-msgstr ""
+msgstr "Éloignez-vous de l’écran et étirez-vous quelques instants"
 
 # Long break
 msgid "Rest your eyes and focus on distant objects"
-msgstr ""
+msgstr "Reposez vos yeux et fixez des objets éloignés"
 
 # Commandline arg description
 msgid "show the about dialog"
@@ -648,19 +649,19 @@ msgid "Please install one of the command-line tools: %s"
 msgstr "Installez l’un des outils de ligne de commande : %s"
 
 msgid "Skipping/postponing disabled period (in seconds)"
-msgstr ""
+msgstr "Durée de saut, de report de la période de désactivation (en secondes)"
 
 msgid "take a short break now"
-msgstr ""
+msgstr "prendre une courte pause maintenant"
 
 msgid "take a long break now"
-msgstr ""
+msgstr "prendre une longue pause maintenant"
 
 msgid "Fade in when breaks start"
-msgstr ""
+msgstr "Fondu au début des pauses"
 
 msgid "Fade in duration (in milliseconds)"
-msgstr ""
+msgstr "Durée du fondu (en millisecondes)"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
