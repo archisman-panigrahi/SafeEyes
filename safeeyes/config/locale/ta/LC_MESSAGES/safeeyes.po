@@ -606,6 +606,12 @@ msgstr ""
 msgid "take a long break now"
 msgstr ""
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
 #~ msgstr "விசைப்பலகை குறுக்குவழிகள் முடக்கப்பட்டிருக்கும் காலம் (விநாடிகளில்)"

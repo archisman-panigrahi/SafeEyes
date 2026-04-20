@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-22 09:20+0000\n"
-"Last-Translator: abdelbasset jabrane "
-"<naminio201@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: abdelbasset jabrane <naminio201@users.noreply.hosted."
+"weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/ar/>\n"
 "Language: ar\n"
@@ -614,6 +614,12 @@ msgid "take a short break now"
 msgstr ""
 
 msgid "take a long break now"
+msgstr ""
+
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
 msgstr ""
 
 # Commandline arg description

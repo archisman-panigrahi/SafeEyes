@@ -602,6 +602,12 @@ msgstr ""
 msgid "take a long break now"
 msgstr ""
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "print the status of running Safe Eyes instance and exit"

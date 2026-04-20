@@ -608,6 +608,12 @@ msgstr ""
 msgid "take a long break now"
 msgstr ""
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "Mostra l'estat de la instància de Safe Eyes en funcionament i surt"
