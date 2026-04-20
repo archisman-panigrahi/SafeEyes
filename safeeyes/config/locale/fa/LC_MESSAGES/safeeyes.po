@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-12-27 17:00+0000\n"
+"PO-Revision-Date: 2026-04-20 17:14+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/safe-eyes/"
 "translations/fa/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -55,11 +55,11 @@ msgstr "به صندلی تکیه داده و راحت باشید"
 
 # Short break
 msgid "Take five slow, deep breaths"
-msgstr ""
+msgstr "پنج بار آرام نفس عمیق بکشید"
 
 # Short break
 msgid "Relax your shoulders and drop them away from your ears"
-msgstr ""
+msgstr "شانه‌هایتان را آزاد کرده و از گوش‌هایتان دور کنید"
 
 # Short break
 msgid "Unclench your jaw and relax your face"
@@ -91,11 +91,11 @@ msgstr ""
 
 # Long break
 msgid "Rest your eyes and focus on distant objects"
-msgstr ""
+msgstr "استراحت طولانی"
 
 # Commandline arg description
 msgid "show the about dialog"
-msgstr "نشان دادن پنجره درباره"
+msgstr "نمایش پنجرهٔ درباره"
 
 # Commandline arg description
 msgid "disable the currently running Safe Eyes instance"
