@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-19 18:29+0000\n"
+"PO-Revision-Date: 2026-04-20 21:47+0000\n"
 "Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Bengali (India) <https://hosted.weblate.org/projects/safe-"
 "eyes/translations/bn_IN/>\n"
@@ -644,10 +644,10 @@ msgid "take a long break now"
 msgstr "একটা লম্বা বিরতি নিন"
 
 msgid "Fade in when breaks start"
-msgstr ""
+msgstr "আস্তে আস্তে বিরতি ফুটে উঠুক"
 
 msgid "Fade in duration (in milliseconds)"
-msgstr ""
+msgstr "ফুটে ওঠার সময় (মিলিসেকেন্ডে)"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
