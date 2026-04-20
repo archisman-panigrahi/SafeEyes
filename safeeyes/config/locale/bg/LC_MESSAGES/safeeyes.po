@@ -636,6 +636,12 @@ msgstr ""
 msgid "take a long break now"
 msgstr ""
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Short break
 #~ msgid "Tightly close your eyes"
 #~ msgstr "Затворете плътно очи"

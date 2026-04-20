@@ -637,6 +637,12 @@ msgstr "现在稍作休息"
 msgid "take a long break now"
 msgstr "现在进行长时间的休息"
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Settings dialog
 #~ msgid "Keyboard shortcuts disabled period (in seconds)"
 #~ msgstr "禁用键盘快捷键的时长（秒）"
