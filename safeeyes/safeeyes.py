@@ -24,6 +24,8 @@ import atexit
 import gettext
 import logging
 from importlib import metadata
+from pathlib import Path
+import re
 import typing
 
 import gi
@@ -41,7 +43,43 @@ from safeeyes.ui.settings_dialog import SettingsDialog
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, Gio, GLib
 
-SAFE_EYES_VERSION = metadata.version("safeeyes")
+
+def _safeeyes_version() -> str:
+    pyproject_path = Path(__file__).resolve().parent.parent / "pyproject.toml"
+
+    # Running from a source checkout: use the local project metadata.
+    if pyproject_path.is_file():
+        pyproject_text = pyproject_path.read_text(encoding="utf-8")
+
+        try:
+            import tomllib
+
+            pyproject = tomllib.loads(pyproject_text)
+            version = pyproject["project"]["version"]
+            return f"{version}+development"
+        except ModuleNotFoundError:
+            pass
+        except (ValueError, KeyError, TypeError):
+            # Fall back to regex parsing for compatibility and resilience.
+            pass
+
+        match = re.search(
+            r'(?ms)^\[project\].*?^version\s*=\s*"([^"]+)"',
+            pyproject_text,
+        )
+        if match is None:
+            raise RuntimeError("Could not parse project version from pyproject.toml")
+
+        return f"{match.group(1)}+development"
+
+    # Installed package: use distribution metadata.
+    try:
+        return metadata.version("safeeyes")
+    except metadata.PackageNotFoundError as error:
+        raise RuntimeError("Could not determine Safe Eyes version") from error
+
+
+SAFE_EYES_VERSION = _safeeyes_version()
 
 
 class SafeEyes(Gtk.Application):
