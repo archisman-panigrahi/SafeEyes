@@ -657,11 +657,14 @@ class BreakSettingsDialog(Gtk.Window):
                 row = 0
 
         if "image" in self.break_config:
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
-                self.break_config["image"], 16, 16, True
-            )
-            image = Gtk.Image.new_from_pixbuf(pixbuf)
-            self.btn_image.set_child(image)
+            try:
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+                    self.break_config["image"], 16, 16, True
+                )
+                image = Gtk.Image.new_from_pixbuf(pixbuf)
+                self.btn_image.set_child(image)
+            except Exception:
+                self.btn_image.set_icon_name("gtk-missing-image")
 
         self.on_switch_override_interval_activate(
             self.switch_override_interval, self.switch_override_interval.get_active()
