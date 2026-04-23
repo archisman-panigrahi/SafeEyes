@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-14 02:09+0000\n"
+"PO-Revision-Date: 2026-04-20 21:47+0000\n"
 "Last-Translator: Archisman Panigrahi <apandada1@gmail.com>\n"
 "Language-Team: Bengali (India) <https://hosted.weblate.org/projects/safe-"
 "eyes/translations/bn_IN/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 # Short break
 msgid "Gently close your eyes"
@@ -55,43 +55,43 @@ msgstr "চেয়ারে ভালো করে আরাম নিন"
 
 # Short break
 msgid "Take five slow, deep breaths"
-msgstr ""
+msgstr "পাঁচবার ধীরে ধীরে, গভীর শ্বাস নিন"
 
 # Short break
 msgid "Relax your shoulders and drop them away from your ears"
-msgstr ""
+msgstr "ঘাড় আলগা করে দিন এবং কান থেকে দূরে সরিয়ে নিন"
 
 # Short break
 msgid "Unclench your jaw and relax your face"
-msgstr ""
+msgstr "আপনার চোয়াল শিথিল করুন এবং মুখকে আরাম দিন"
 
 # Short break
 msgid "Stretch your neck gently from side to side"
-msgstr ""
+msgstr "এপাশ থেকে ওপাশ গলা টান টান করুন"
 
 # Short break
 msgid "Check your posture and sit back comfortably"
-msgstr ""
+msgstr "আপনার বসার ভঙ্গি ঠিক করুন এবং আরাম করে হেলান দিয়ে বসুন"
 
 # Short break
 msgid "Stretch your wrists and fingers"
-msgstr ""
+msgstr "কবজি এবং আঙ্গুল টান টান করুন"
 
 # Long break
 msgid "Stand up and stretch your back and legs"
-msgstr ""
+msgstr "উঠে দাঁড়িয়ে আপনার পিঠ ও পা টান টান করে নিন"
 
 # Long break
 msgid "Walk around and refill your water"
-msgstr ""
+msgstr "একটু ঘুরে আসুন এবং জল ভরে নিন"
 
 # Long break
 msgid "Step away from the screen and do a short mobility stretch"
-msgstr ""
+msgstr "স্ক্রিন থেকে একটু সরে দাঁড়ান এবং শরীরটা একটু ঝালিয়ে নিন"
 
 # Long break
 msgid "Rest your eyes and focus on distant objects"
-msgstr ""
+msgstr "চোখকে একটু বিশ্রাম দিন এবং দুরের জিনিসের দিকে তাকিয়ে থাকুন"
 
 # Commandline arg description
 msgid "show the about dialog"
@@ -642,6 +642,12 @@ msgstr "একটা ছোট্ট বিরতি নিন"
 
 msgid "take a long break now"
 msgstr "একটা লম্বা বিরতি নিন"
+
+msgid "Fade in when breaks start"
+msgstr "আস্তে আস্তে বিরতি ফুটে উঠুক"
+
+msgid "Fade in duration (in milliseconds)"
+msgstr "ফুটে ওঠার সময় (মিলিসেকেন্ডে)"
 
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"

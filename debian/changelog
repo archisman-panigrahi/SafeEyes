@@ -1,3 +1,9 @@
+safeeyes (3.5.0) noble; urgency=medium
+
+  * break fade-in, bugfix for running from source and missing breaks, updated translations
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Thu, 23 Apr 2026 00:53:07 +0000
+
 safeeyes (3.4.1) noble; urgency=medium
 
   * New breaks and new translations

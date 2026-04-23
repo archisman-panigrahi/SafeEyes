@@ -648,6 +648,12 @@ msgstr "tee nüüd üks lühike paus"
 msgid "take a long break now"
 msgstr "tee nüüd üks pikk paus"
 
+msgid "Fade in when breaks start"
+msgstr ""
+
+msgid "Fade in duration (in milliseconds)"
+msgstr ""
+
 # Commandline arg description
 #~ msgid "print the status of running safeeyes instance and exit"
 #~ msgstr "väljasta hetkel töötava Safe Eyes instantsi staatus ja välju"
