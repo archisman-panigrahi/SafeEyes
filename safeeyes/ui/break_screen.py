@@ -37,6 +37,23 @@ from gi.repository import Gtk
 
 BREAK_SCREEN_GLADE = os.path.join(utility.BIN_DIRECTORY, "glade/break_screen.glade")
 
+_pixbuf_cache: typing.Optional[GdkPixbuf.Pixbuf] = None
+_pixbuf_cache_path: typing.Optional[str] = None
+
+
+def _get_or_load_pixbuf(path: str) -> typing.Optional[GdkPixbuf.Pixbuf]:
+    """Return a cached pixbuf for path, loading from disk only when the path changes."""
+    global _pixbuf_cache, _pixbuf_cache_path
+    if _pixbuf_cache_path != path:
+        try:
+            _pixbuf_cache = GdkPixbuf.Pixbuf.new_from_file(path)
+            _pixbuf_cache_path = path
+        except Exception:
+            logging.exception("Failed to load break image: %s", path)
+            _pixbuf_cache = None
+            _pixbuf_cache_path = None
+    return _pixbuf_cache
+
 
 class BreakScreen:
     """The fullscreen windows which prevent users from using the computer.
@@ -507,12 +524,8 @@ class BreakScreenWindow(Gtk.Window):
         max_width = max(1, (monitor_width * 8) // 10 - 1)
         max_height = max(1, (monitor_height * 3) // 10 - 1)
 
-        try:
-            loaded = GdkPixbuf.Pixbuf.new_from_file(image_path)
-            if loaded is None:
-                raise ValueError("Failed to load break image")
-        except Exception:
-            logging.exception("Failed to load break image: %s", image_path)
+        loaded = _get_or_load_pixbuf(image_path)
+        if loaded is None:
             return
         pixbuf: GdkPixbuf.Pixbuf = loaded
 

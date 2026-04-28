@@ -663,6 +663,18 @@ def load_and_scale_image(
     return image
 
 
+def load_image_as_texture(
+    path: str, width: int, height: int
+) -> typing.Optional[Gdk.Texture]:
+    """Load and scale an image file into a Gdk.Texture that can be reused across widgets."""
+    if not os.path.isfile(path):
+        return None
+    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+        filename=path, width=width, height=height, preserve_aspect_ratio=True
+    )
+    return Gdk.Texture.new_for_pixbuf(pixbuf)
+
+
 def has_method(module, method_name, no_of_args=0):
     """Check whether the given function is defined in the module or not."""
     if hasattr(module, method_name):

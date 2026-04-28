@@ -30,7 +30,8 @@ import typing
 import gi
 
 gi.require_version("Gtk", "4.0")
-from gi.repository import Gtk
+gi.require_version("Gdk", "4.0")
+from gi.repository import Gdk, Gtk
 
 from safeeyes import utility
 
@@ -405,11 +406,14 @@ class TrayAction:
         self.system_icon = system_icon
         self.__toolbar_buttons = []
         self.single_use = single_use
+        self.__cached_texture: typing.Optional[Gdk.Texture] = None
 
     def get_icon(self) -> Gtk.Image:
         if not self.system_icon:
-            image = utility.load_and_scale_image(self.__icon, 16, 16)
-            if image is not None:
+            if self.__cached_texture is None:
+                self.__cached_texture = utility.load_image_as_texture(self.__icon, 16, 16)
+            if self.__cached_texture is not None:
+                image = Gtk.Image.new_from_paintable(self.__cached_texture)
                 image.show()
                 return image
 
